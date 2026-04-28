@@ -732,9 +732,9 @@
   max-height: 50vw;
 
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .nav-links{
-    display: none;
+    display: none !important;
   }  
 }
 .nav-links{display:flex;align-items:center;gap:36px}
@@ -1770,6 +1770,10 @@ function submitForm(e) {
 
 </script>
 <script>
+
+if (window.innerWidth >= 768) {
+
+  
   const heroBg = document.getElementById('heroBg');
 
   window.addEventListener('scroll', () => {
@@ -1781,6 +1785,7 @@ function submitForm(e) {
     const size = 100 + progress * 20;
     heroBg.style.backgroundSize = `${size}% auto`;
   });
+}
 </script>
 </body>
 </html>
