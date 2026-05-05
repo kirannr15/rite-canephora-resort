@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2 user-scalable=0"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rite Canephora — Resort & Plantation Plots, Sakaleshpur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,13 +33,19 @@
   }
 
   /* ── NAV ── */
-  nav {
+  .nav-links, .nav-cta {
+      display: none;
+    }
+  
+    nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 20px 48px;
     background: rgba(26,44,30,0.0);
     transition: background 0.4s, padding 0.4s;
   }
+  
+  
   nav.scrolled {
     background: rgba(26,44,30,0.96);
     padding: 14px 48px;
@@ -199,10 +203,16 @@
   }
 
   /* ── INTRO STRIP ── */
+  @media (min-width: 768px) {
+    .intro-strip {
+      justify-content: center;
+    }
+
+  }
   .intro-strip {
     background: var(--forest);
     padding: 28px 48px;
-    display: flex; align-items: center; justify-content: center; gap: 48px;
+    display: flex; align-items: center; justify-content: left; gap: 48px;
     flex-wrap: wrap;
   }
   .intro-pill {
@@ -237,9 +247,13 @@
   }
 
   /* ── ABOUT ── */
-  .about { padding: 120px 0 100px; }
+  .about { padding: 60px 0 60px; }
+  @media (min-width: 768px) {
+    .about { padding: 120px 0 100px; }
+  }
+  
   .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; align-items: center;
   }
   .about-text p {
     font-size: 1.05rem; line-height: 1.85; color: var(--mid);
@@ -251,7 +265,7 @@
   }
   .about-img {
     width: 100%; aspect-ratio: 4/5;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
   .about-img-accent {
@@ -260,15 +274,17 @@
     background: var(--forest);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    text-align: center; padding: 20px;
+    text-align: center;     padding: 12px;
+    gap: 10px;
   }
   .about-img-accent-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1;
   }
   .about-img-accent-text {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(255,255,255,0.7); margin-top: 6px;
+    color: var(--gold)
   }
   .ihg-badge {
     margin-top: 32px;
@@ -331,7 +347,7 @@
     font-size: 1rem; line-height: 1.8; color: var(--mid); font-weight: 300;
   }
   .villa-cards {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px;
     background: rgba(0,0,0,0.08);
   }
   .villa-card {
@@ -340,6 +356,12 @@
     position: relative; overflow: hidden;
     transition: background 0.3s;
     cursor: pointer;
+  }
+  .villa-card-img{
+    padding: 0;
+  }
+  .villa-card-img img{
+    width: 100%;
   }
   .villa-card::before {
     content: '';
@@ -734,12 +756,13 @@
   max-height: 50vw;
 
 }
-@media (max-width: 768px) {
-  .nav-links{
-    display: none !important;
-  }  
-}
+@media (min-width: 768px) {
+
 .nav-links{display:flex;align-items:center;gap:36px}
+.nav-cta{
+  display: block;
+}
+}
 .nav-links a{
   font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;
   color:rgba(255,255,255,0.55);text-decoration:none;
@@ -747,6 +770,174 @@
 }
 .nav-links a:hover{color:#fff}
 
+
+
+#clouds {
+  z-index: 1;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  right: 0;
+  height: 50%;
+  top: 0
+}
+
+.cloud {
+  width: 450px;
+  height: 330px;
+  background-image: url(./img/c1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  position: absolute
+}
+
+.x1 {
+  left: -500px;
+  top: 0;
+  -webkit-transform: scale(.5);
+  -moz-transform: scale(.5);
+  transform: scale(.5);
+  -webkit-animation: moveclouds 100s linear infinite;
+  -moz-animation: moveclouds 100s linear infinite;
+  -o-animation: moveclouds 100s linear infinite
+}
+
+.x2 {
+  left: -120px;
+  top: 0;
+  -webkit-transform: scale(.4);
+  -moz-transform: scale(.4);
+  transform: scale(.4);
+  opacity: .8;
+  -webkit-animation: moveclouds 150s linear infinite;
+  -moz-animation: moveclouds 150s linear infinite;
+  -o-animation: moveclouds 150s linear infinite
+}
+
+.x3 {
+  left: -550px;
+  top: 120px;
+  -webkit-transform: scale(.4);
+  -moz-transform: scale(.4);
+  transform: scale(.4);
+  opacity: .8;
+  -webkit-animation: moveclouds 200s linear infinite;
+  -moz-animation: moveclouds 200s linear infinite;
+  -o-animation: moveclouds 200s linear infinite
+}
+
+.x4 {
+  left: 250px;
+  top: 0;
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  transform: scale(.6);
+  -webkit-animation: moveclouds 70s linear infinite;
+  -moz-animation: moveclouds 70s linear infinite;
+  -o-animation: moveclouds 70s linear infinite
+}
+
+.x5 {
+  left: -750px;
+  top: 120px;
+  -webkit-transform: scale(.7);
+  -moz-transform: scale(.7);
+  transform: scale(.7);
+  opacity: .8;
+  -webkit-animation: moveclouds 110s linear infinite;
+  -moz-animation: moveclouds 110s linear infinite;
+  -o-animation: moveclouds 110s linear infinite
+}
+
+.x6 {
+  left: 120px;
+  top: 0;
+  -webkit-transform: scale(.4);
+  -moz-transform: scale(.4);
+  transform: scale(.4);
+  opacity: .75;
+  -webkit-animation: moveclouds 150s linear infinite;
+  -moz-animation: moveclouds 150s linear infinite;
+  -o-animation: moveclouds 150s linear infinite
+}
+
+.x7 {
+  left: -1050px;
+  top: 0;
+  -webkit-transform: scale(.75);
+  -moz-transform: scale(.75);
+  transform: scale(.75);
+  -webkit-animation: moveclouds 180s linear infinite;
+  -moz-animation: moveclouds 180s linear infinite;
+  -o-animation: moveclouds 180s linear infinite
+}
+
+.x8 {
+  left: 200px;
+  top: 0;
+  -webkit-transform: scale(.2);
+  -moz-transform: scale(.2);
+  transform: scale(.6);
+  -webkit-animation: moveclouds 40s linear infinite;
+  -moz-animation: moveclouds 40s linear infinite;
+  -o-animation: moveclouds 40s linear infinite
+}
+
+.x9 {
+  left: 800px;
+  top: 0;
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  /* transform: scale(.9); */
+  -webkit-animation: moveclouds 30s linear infinite;
+  -moz-animation: moveclouds 30s linear infinite;
+  -o-animation: moveclouds 30s linear infinite
+}
+
+.x10 {
+  left: -1280px;
+  top: 0;
+  -webkit-transform: scale(.7);
+  -moz-transform: scale(.7);
+  transform: scale(.7);
+  opacity: .9;
+  -webkit-animation: moveclouds 170s linear infinite;
+  -moz-animation: moveclouds 170s linear infinite;
+  -o-animation: moveclouds 170s linear infinite
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 800px
+  }
+
+  100% {
+    margin-left: -800px
+  }
+}
+
+@-moz-keyframes moveclouds {
+  0% {
+    margin-left: 800px
+  }
+
+  100% {
+    margin-left: -800px
+  }
+}
+
+@-o-keyframes moveclouds {
+  0% {
+    margin-left: 800px
+  }
+
+  100% {
+    margin-left: -800px
+  }
+}
 
 
 .faq-container {
@@ -917,14 +1108,14 @@ $(document).ready(function(){
     <div class="nav-logo-mark"></div>
     <div id="home">
       <div class="nav-logo-text">Rite Canephora</div>
-      <span class="nav-logo-sub">Resort & Plantation Plots</span>
+      <span class="nav-logo-sub">Luxury Villas</span>
     </div>
   </div>
   <div class="nav-links">
     <a href="#project">Project</a>
     <a href="#villas">Plots</a>
     <a href="#amenities">Amenities</a>
-    <a href="#gallery">Gallery</a>
+    <!-- <a href="#gallery">Gallery</a> -->
     <a href="#investment">Invest</a>
     <a href="#enquire">Contact</a>
   </div>
@@ -948,9 +1139,9 @@ $(document).ready(function(){
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-mist"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Sakaleshpur, Hassan District <span>✦</span> Western Ghats, Karnataka</div>
+    <div class="hero-eyebrow">Sakaleshpur<span>✦</span> Western Ghats, Karnataka</div>
     <h1 class="hero-title">Where the Forest<br><em>Finds You</em></h1>
-    <p class="hero-subtitle">  Private resort & plantation plots nestled in the Western Ghats
+    <p class="hero-subtitle"> Five Start Resort & Luxury Villas nestled in the Western Ghats
     </p>
     <div class="hero-actions">
       <a href="#enquire" class="btn-primary">Register Interest</a>
@@ -964,11 +1155,11 @@ $(document).ready(function(){
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">39+</div>
-      <div class="hero-stat-label">Exclusive Plots</div>
+      <div class="hero-stat-label">Luxury Villas</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">40+</div>
-      <div class="hero-stat-label">Resort Amenities</div>
+      <div class="hero-stat-label">Amenities</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">3.5h</div>
@@ -985,9 +1176,9 @@ $(document).ready(function(){
   <div class="intro-divider"></div> -->
   <div class="intro-pill"><div class="intro-pill-dot"></div>Riteway & Medha Projects</div>
   <div class="intro-divider"></div>
-  <div class="intro-pill"><div class="intro-pill-dot"></div>Starting ₹1.4 Cr for 10,000 Sq.Ft</div>
+  <div class="intro-pill"><div class="intro-pill-dot"></div>STARTING ₹1.4 CR FOR 10,000 SQ.FT (Luxury Villas)</div>
   <div class="intro-divider"></div>
-  <div class="intro-pill"><div class="intro-pill-dot"></div>6 Km from National Highway</div>
+  <div class="intro-pill"><div class="intro-pill-dot"></div>6 km from National Highway | Attached to State Highway (Sakleshpur–Mudigere Road)</div>
 </div>
 
 <!-- ABOUT -->
@@ -996,28 +1187,30 @@ $(document).ready(function(){
     <div class="about-grid">
       <div class="about-text reveal">
         <div class="section-label">About the Project</div>
-        <h2 class="section-title">A Living Estate in<br><em>The Western Ghats</em></h2>
+        <h2 class="section-title">A Living Estate in<br><em>the Western Ghats</em></h2>
         <div class="gold-rule"></div>
-        <p>Rite Canephora is a first-of-its-kind <strong>Resort & Plantation Plot community</strong> nestled in Agalatti Village, Sakaleshpur — where rolling coffee estates meet world-class hospitality infrastructure.</p>
-        <p>Set across <strong>16 lush acres</strong> in Hassan District, this isn't merely a plot of land. It's ownership of a slice of the Western Ghats, complete with resort access, plantation living, and an investment-grade asset in one of Karnataka's most beloved getaway destinations.</p>
-        <p>Developed by <strong>Riteway & Medha Projects</strong> — trusted Bengaluru developers with a legacy of delivered residential communities — Rite Canephora is backed by an IHG hospitality partnership, ensuring international-grade resort management.</p>
+        
+        <p>Rite Canephora is a first-of-its-kind <strong>Luxury Villas & 5 Start Resort</strong> community in Sakaleshpur, where scenic coffee estates meet premium hospitality infrastructure.
+        </p>
+        <p>Spread across <strong>16 lush acres,</strong> it offers more than land ownership — it is an opportunity to own a part of the Western Ghats with access to 5-star resort amenities, plantation living, and a high-potential investment asset in one of Karnataka’s most sought-after getaway destinations.
+        </p>
+        <p>Developed by <strong>Riteway & Medha Projects,</strong> trusted Bengaluru-based developers with a proven legacy in residential communities, Rite Canephora is partnered with a 5-star hospitality brand to ensure world-class resort management and guest experiences.</p>
         <div class="ihg-badge">
           <div class="ihg-badge-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/></svg>
           </div>
           <div class="ihg-badge-text">
-            <strong>IHG / Holiday Inn Partnership</strong>
-            Holiday Inn Resort Sakleshpur Western Ghats — first Holiday Inn Resort in Southern India
+            Rite Canephora is backed by a strategic 30-year partnership with one of the world’s largest resort operators, ensuring premium hospitality standards and elevated guest experiences within the project.
           </div>
         </div>
       </div>
       <div class="about-img-wrap reveal reveal-delay-2">
         <img class="about-img"
-          src="./img/hero_2.jpg"
+          src="./img/resort-plan.png"
           alt="Rite Canephora Resort aerial view">
         <div class="about-img-accent">
-          <div class="about-img-accent-num">16</div>
-          <div class="about-img-accent-text">Acres of<br>Plantation<br>Paradise</div>
+          <div class="about-img-accent-text ">Assured annual returns of ₹5 lakh</div>
+          <div class="about-img-accent-text">Buyback option at 2X investment in 7.5 years*</div>
         </div>
       </div>
     </div>
@@ -1031,11 +1224,11 @@ $(document).ready(function(){
     <div class="gallery-panel-label">Coffee Plantation</div>
   </div>
   <div class="gallery-panel">
-    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=80" alt="Resort Pool">
+    <img src="https://i.pinimg.com/1200x/95/2d/c4/952dc46ae22bb4c4752ab0fbf1bcfacf.jpg" alt="Resort Pool">
     <div class="gallery-panel-label">Resort Pool</div>
   </div>
   <div class="gallery-panel">
-    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Western Ghats">
+    <img src="https://i.pinimg.com/1200x/85/f2/a9/85f2a952c63be3afadcdc0a8116a571a.jpg" alt="Western Ghats">
     <div class="gallery-panel-label">Western Ghats</div>
   </div>
   <div class="gallery-panel">
@@ -1053,45 +1246,45 @@ $(document).ready(function(){
   <div class="section-inner">
     <div class="villas-intro">
       <div class="reveal">
-        <div class="section-label">Plot & Villa Types</div>
+        <div class="section-label">Luxury Villas
+        </div>
         <h2 class="section-title">Choose Your<br><em>Estate</em></h2>
         <div class="gold-rule"></div>
       </div>
       <div class="reveal reveal-delay-1">
-        <p>From intimate plantation plots to full resort villas with private pools, each offering is designed to blend seamlessly with the natural landscape while delivering resort-grade comfort. All plot owners enjoy full access to resort amenities.</p>
+        <p>From exclusive plantation to luxury 2 & 3 BHK villas, every offering is designed to harmonize with nature
+          while delivering 5-star resort-grade comfort. All owners enjoy full access to premium resort amenities.</p>
       </div>
     </div>
     <div class="villa-cards reveal">
+      <div class="villa-card villa-card-img">
+        <img src="./img/2-bhk.png">
+      </div>
       <div class="villa-card">
         <div class="villa-card-num">01</div>
         <div class="villa-card-icon"></div>
-        <div class="villa-card-name">Plantation Plot</div>
-        <div class="villa-card-size">10,000 Sq.Ft</div>
-        <div class="villa-card-desc">Raw land in the heart of the coffee estate. Build your dream home or villa at your pace, with full resort access included.</div>
-        <div class="villa-card-price">₹1.4 Cr <span>onwards</span></div>
+        <div class="villa-card-name">2 BHK Villa</div>
+        <div class="villa-card-size">1,250 SQ.FT </div>
+        <div class="villa-card-desc">A thoughtfully designed luxury villa offering spacious living, modern comforts, and
+          seamless access to nature and premium resort amenities.
+        </div>
+        <div class="villa-card-price">On Request</div>
+      </div>
+
+    </div>
+<br>
+    <div class="villa-cards reveal">
+      <div class="villa-card villa-card-img">
+        <img src="./img/2-bhk.png">
       </div>
       <div class="villa-card">
         <div class="villa-card-num">02</div>
         <div class="villa-card-icon"></div>
-        <div class="villa-card-name">1 BHK Villa</div>
-        <div class="villa-card-size">448 Sq.Ft</div>
-        <div class="villa-card-desc">A cosy retreat villa with bedroom, lounge, sitout, and pantry — perfect for weekend escapes and rental income.</div>
-        <div class="villa-card-price">On Request</div>
-      </div>
-      <div class="villa-card">
-        <div class="villa-card-num">03</div>
-        <div class="villa-card-icon"></div>
-        <div class="villa-card-name">2 BHK Villa</div>
-        <div class="villa-card-size">853 Sq.Ft</div>
-        <div class="villa-card-desc">Ground-floor villa with two bedrooms, glass deck, private parking, and a fireplace — nature all around.</div>
-        <div class="villa-card-price">On Request</div>
-      </div>
-      <div class="villa-card">
-        <div class="villa-card-num">04</div>
-        <div class="villa-card-icon"></div>
-        <div class="villa-card-name">Pool Villa</div>
-        <div class="villa-card-size">1,633 Sq.Ft</div>
-        <div class="villa-card-desc">The flagship — G+1 pool villa with raised decks, kitchenette, dual lounges and the ultimate resort lifestyle experience.</div>
+        <div class="villa-card-name">3 BHK Villa</div>
+        <div class="villa-card-size">1,750 SQ.FT </div>
+        <div class="villa-card-desc">An expansive luxury villa crafted for refined living, featuring elegant interiors,
+          enhanced privacy, and seamless access to nature and premium resort amenities.
+        </div>
         <div class="villa-card-price">On Request</div>
       </div>
     </div>
@@ -1156,13 +1349,13 @@ $(document).ready(function(){
 </section>
 
 
-  <div class="slider" id="gallery">
+  <!-- <div class="slider" id="gallery">
     <div><img src="./img/pool-villas.png"></div>
     <div><img src="./img/1-bhk.png"></div>
     <div><img src="./img/2-bhk.png"></div>
     <div><img src="./img/3-bhk.png"></div>
     <div><img src="./img/club-house.png"></div>
-  </div>
+  </div> -->
 
 
 
@@ -1201,11 +1394,10 @@ $(document).ready(function(){
   </div>
 </section>
 
-<section class="temple-section">
+<!-- <section class="temple-section">
   <h2 class="temple-header">Famous Temples Near By</h2>
   <div class="temple-grid">
     
-    <!-- Temple 1 -->
     <div class="temple-card">
       <img src="https://shribettadabhairaveshwaraswamy.org/assets/img/hero-bg.jpg" alt="Betta Byraveshwara Temple">
       <div class="temple-content">
@@ -1218,7 +1410,6 @@ $(document).ready(function(){
       </div>
     </div>
 
-    <!-- Temple 2 -->
     <div class="temple-card">
       <img src="https://www.authenticindiatours.com/app/uploads/2022/04/Chennakeshava-Temple-Belur-Karnataka-1400x550-c-default.jpg" alt="Belur Temple">
       <div class="temple-content">
@@ -1230,7 +1421,7 @@ $(document).ready(function(){
     </div>
 
   </div>
-</section>
+</section> -->
 
 
 <section class="resort-plan slider">
@@ -1279,42 +1470,62 @@ $(document).ready(function(){
   <div class="section-inner">
     <div class="invest-grid">
       <div class="reveal">
-        <div class="section-label">Why Invest</div>
+        <div class="section-label">WHY INVEST AT RITE CANEPHORA (Sakleshpur)
+        </div>
         <h2 class="section-title">A Smarter Kind<br>of <em>Ownership</em></h2>
         <div class="gold-rule"></div>
         <div class="invest-cards" style="margin-top:40px;">
           <div class="invest-card">
             <div class="invest-card-num">01</div>
             <div class="invest-card-body">
-              <div class="invest-card-title">IHG-Backed Hospitality</div>
-              <div class="invest-card-desc">Your investment is anchored by an international hotel brand partnership — Holiday Inn Resort Sakleshpur, the first Holiday Inn Resort in Southern India.</div>
+              <div class="invest-card-title">Assured Annual Returns
+              </div>
+              <div class="invest-card-desc">Enjoy guaranteed annual returns of ₹5 lakh, creating a steady and predictable income stream from your investment.
+              </div>
             </div>
           </div>
           <div class="invest-card">
             <div class="invest-card-num">02</div>
             <div class="invest-card-body">
-              <div class="invest-card-title">Rental Income Potential</div>
-              <div class="invest-card-desc">The resort's hotel operations generate ongoing revenue potential for villa owners through managed rental programs.</div>
+              <div class="invest-card-title">Structured Value Appreciation
+              </div>
+              <div class="invest-card-desc">Your investment is designed to grow with a 7.5% incremental appreciation every third year, enhancing long-term value.
+              </div>
             </div>
           </div>
           <div class="invest-card">
             <div class="invest-card-num">03</div>
             <div class="invest-card-body">
-              <div class="invest-card-title">Proven Developer</div>
-              <div class="invest-card-desc">Riteway & Medha Projects has delivered multiple Bengaluru residential projects — Rite Irene, Rite Grand Residency, Rite Pristina.</div>
+              <div class="invest-card-title">Secure Exit with Buyback
+              </div>
+              <div class="invest-card-desc">Benefit from a buyback option in 7.5 years at 2X your investment amount, offering a clear and rewarding exit strategy.
+              </div>
             </div>
           </div>
           <div class="invest-card">
             <div class="invest-card-num">04</div>
             <div class="invest-card-body">
-              <div class="invest-card-title">Appreciating Micro-Market</div>
-              <div class="invest-card-desc">Sakaleshpur is Karnataka's fastest-growing premium leisure destination — land appreciation + rising tourism demand drive long-term value.</div>
+              <div class="invest-card-title">Premium Hospitality Backing
+              </div>
+              <div class="invest-card-desc">Backed by a 5-star resort chain through a 30-year signed agreement, ensuring world-class hospitality standards and sustained project value.
+              </div>
+            </div>
+          </div>
+          <div class="invest-card">
+            <div class="invest-card-num">05</div>
+            <div class="invest-card-body">
+              <div class="invest-card-title">High-Growth Destination
+
+              </div>
+              <div class="invest-card-desc">Sakaleshpur continues to emerge as a rapidly appreciating leisure and lifestyle market, driven by tourism growth and premium demand.
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <div class="invest-price-card">
+        <img src="https://img.magnific.com/free-photo/luxurious-villa-with-modern-architectural-design_23-2151694095.jpg" alt="">
+      <!--   <div class="invest-price-card">
           <div class="ipc-label">Starting Investment</div>
           <div class="ipc-price">₹1.4 Cr</div>
           <div class="ipc-price-sub">for 10,000 Sq.Ft Plantation Plot</div>
@@ -1328,17 +1539,17 @@ $(document).ready(function(){
           <div class="ipc-divider"></div>
           <button class="ipc-cta" onclick="document.getElementById('enquire').scrollIntoView({behavior:'smooth'})">
             Request Detailed Pricing
-          </button>
-        </div>
+          </button> 
+         
+        </div>-->
       </div>
     </div>
   </div>
 </section>
-
+<!-- 
 <div class="faq-container">
   <h2 class="faq-header">Frequently Asked Questions - Rite Canephora</h2>
 
-  <!-- FAQ Item -->
   <div class="accordion-item">
     <button class="accordion-button">
       <span>1. What is managed farmland at Rite Canephora?</span>
@@ -1388,7 +1599,7 @@ $(document).ready(function(){
       Rite Canephora ensures clear titles, proper documentation, and full legal compliance before offering farmland. With us, the process is smooth and secure.
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- LEAD FORM -->
 <section class="lead-section" id="enquire">
@@ -1432,7 +1643,8 @@ $(document).ready(function(){
         <div id="formContent">
           <div class="form-title">Register Interest</div>
           <div class="form-sub">We'll be in touch within 24 hours</div>
-          <form id="leadForm" onsubmit="submitForm(event)">
+          
+            <form id="leadFormPage" onsubmit="submitForm(event, 'page')">
             <div class="form-row">
               <div class="form-group">
                 <label>First Name *</label>
@@ -1529,6 +1741,123 @@ $(document).ready(function(){
   </div>
 </footer>
 
+
+
+<div id="enquireModal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+<div class="form-box reveal reveal-delay-2" id="formBox">
+  <div id="formContent">
+    <div class="form-title">Register Interest</div>
+    <div class="form-sub">We'll be in touch within 24 hours</div>
+    <form id="leadFormModal" onsubmit="submitForm(event, 'modal')">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="First Name" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" placeholder="Last name" name="lastName" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number *</label>
+        <input type="tel" placeholder="+91 " required name="mobile">
+      </div>
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" name="email" placeholder="email@domain.com" required>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" name="city" placeholder="Your City">
+      </div>
+      <div class="form-group">
+        <label>I'm interested in</label>
+        <select name="interest">
+          <option value="">— Select Plot / Villa Type —</option>
+          <option>Plantation Plot (10,000 Sq.Ft)</option>
+          <option>1 BHK Villa (448 Sq.Ft)</option>
+          <option>2 BHK Villa (853 Sq.Ft)</option>
+          <option>3 BHK Villa (1,517 Sq.Ft)</option>
+          <option>Pool Villa (1,633 Sq.Ft)</option>
+          <option>Just Exploring</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message / Questions (optional)</label>
+        <textarea name="message" placeholder="Any specific questions about the project, pricing, or site visit?"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Enquiry →</button>
+      <p class="form-privacy">Your information is private and will only be used to contact you about this project.</p>
+    </form>
+  </div>
+  <div class="form-success" id="formSuccess">
+    <div class="form-success-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>Thank You!</h3>
+    <p>Your enquiry has been received.<br>Our team will contact you within 24 hours.</p>
+    <p style="margin-top:16px;color:rgba(255,255,255,0.3);font-size:0.75rem;">For immediate assistance, call +91 88677 66888</p>
+  </div>
+</div>
+</div>
+</div>
+
+<style>
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 9999;
+  }
+  
+  .modal.active {
+    display: block;
+  }
+  
+  .modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+
+
+.modal-content {
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  margin: 5% auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+
+  max-height: 70vh;        /* 🔥 limit height */
+  overflow-y: auto;        /* scroll inside */
+}
+
+/* optional: make it tighter */
+.form-box {
+  /* padding: 10px 0; */
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+textarea {
+  min-height: 60px;  /* reduce big textarea */
+}
+
+  </style>
+
+
 <!-- FLOAT CTA -->
 <a href="#enquire" class="float-cta" id="floatCta">Enquire Now</a>
 <script>
@@ -1542,7 +1871,87 @@ $(document).ready(function(){
     });
   });
 </script>
+
+
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  
+    const modal = document.getElementById('enquireModal');
+  
+    // OPEN MODAL
+    document.querySelector('.nav-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.classList.add('active');
+    });
+  
+    // CLOSE MODAL
+    document.querySelector('.modal-close').addEventListener('click', closeModal);
+    document.querySelector('.modal-overlay').addEventListener('click', closeModal);
+  
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+  
+    // FORM SUBMIT
+    window.submitForm = function(e, type) {
+      e.preventDefault();
+  
+      const form = type === 'modal'
+        ? document.getElementById("leadFormModal")
+        : document.getElementById("leadFormPage");
+  
+      if (!form) {
+        console.error("Form not found");
+        return;
+      }
+  
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector(".form-submit");
+  
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+  
+      fetch("https://script.google.com/macros/s/AKfycbxYKRc6LzK0g3tZsWnGSgyL4MnYpWPztwZpUg9AsErwQBZYsXUTF8KKCN3hkxaj84DvyA/exec", {
+        method: "POST",
+        body: new URLSearchParams(formData)
+      })
+      .then(res => res.text())
+      .then(() => {
+  
+        if (type === 'modal') {
+          document.getElementById("formContent").style.display = "none";
+          document.getElementById("formSuccess").style.display = "block";
+  
+          setTimeout(() => {
+            closeModal();
+            document.getElementById("formContent").style.display = "block";
+            document.getElementById("formSuccess").style.display = "none";
+          }, 3000);
+        } else {
+          alert("Thank you! We’ll contact you.");
+        }
+  
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Enquiry →";
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Submission failed. Try again.");
+  
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Enquiry →";
+      });
+    };
+  
+  });
+  </script>
+
+  
+<script>
+
+
+
   
 function submitForm(e) {
   e.preventDefault();
@@ -1604,10 +2013,6 @@ function submitForm(e) {
 
 </script>
 <script>
-
-if (window.innerWidth >= 768) {
-
-  
   const heroBg = document.getElementById('heroBg');
 
   window.addEventListener('scroll', () => {
@@ -1617,9 +2022,10 @@ if (window.innerWidth >= 768) {
 
     // Background zoom: from 100% to 120%
     const size = 100 + progress * 20;
+    if(!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi|Tablet|iPad/i) ) {
     heroBg.style.backgroundSize = `${size}% auto`;
+    }
   });
-}
 </script>
 </body>
 </html>
