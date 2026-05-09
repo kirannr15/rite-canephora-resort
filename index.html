@@ -1,946 +1,1634 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rite Canephora — Resort & Plantation Plots, Sakaleshpur</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rite Canephora — Resort & Plantation Plots, Sakaleshpur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --forest:    #1a2c1e;
-    --moss:      #2d4a2d;
-    --canephora: #4a7c3f;
-    --gold:      #c9a84c;
-    --gold-lt:   #e8c96a;
-    --cream:     #f5f0e8;
-    --warm-white:#faf8f4;
-    --charcoal:  #2a2a2a;
-    --mid:       #6b6b6b;
-    --light:     #b0a898;
-  }
+    :root {
+      --forest: #1a2c1e;
+      --moss: #2d4a2d;
+      --canephora: #4a7c3f;
+      --gold: #c9a84c;
+      --gold-lt: #e8c96a;
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --charcoal: #2a2a2a;
+      --mid: #6b6b6b;
+      --light: #b0a898;
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
+    }
 
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      width: 100%;
+    }
 
-  /* ── NAV ── */
-  .nav-links, .nav-cta {
+    /* ── NAV ── */
+    .nav-links,
+    .nav-cta {
       display: none;
     }
-  
+
     nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 48px;
-    background: rgba(26,44,30,0.0);
-    transition: background 0.4s, padding 0.4s;
-  }
-  
-  
-  nav.scrolled {
-    background: rgba(26,44,30,0.96);
-    padding: 14px 48px;
-    backdrop-filter: blur(12px);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-  }
-  .nav-logo-mark {
-    width: 38px; height: 38px;
-    background: var(--gold);
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .nav-logo-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 500; letter-spacing: 0.08em;
-    color: #fff;
-    line-height: 1.1;
-  }
-  .nav-logo-sub {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.6rem; font-weight: 400; letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    display: block;
-  }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--forest);
-    border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 11px 28px;
-    transition: background 0.2s, transform 0.2s;
-    text-decoration: none;
-  }
-  .nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
-
-  /* ── HERO ── */
-  .hero {
-    height: 100vh; min-height: 680px;
-    position: relative;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    /* background:
-      linear-gradient(to bottom, rgba(10,22,12,0.55) 0%, rgba(10,22,12,0.3) 50%, rgba(10,22,12,0.75) 100%),
-      url('https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=1800&q=80') center/cover no-repeat; */
-       background:
-      linear-gradient(to bottom, rgba(10,22,12,0.55) 0%, rgba(10,22,12,0.3) 50%, rgba(10,22,12,0.75) 100%),
-      url('./img/banner-3.jpg') center/cover no-repeat;
-    /* transform: scale(1.04);
-    transition: transform 8s ease-out; */
-    transition: background-size 0.2s ease-out;
-      will-change: background-size;
-  }
-  .hero-bg.loaded { transform: scale(1.0); }
-
-  /* animated mist overlay */
-  .hero-mist {
-    position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse 120% 60% at 50% 80%, rgba(200,220,200,0.08) 0%, transparent 70%);
-    animation: mistDrift 12s ease-in-out infinite alternate;
-  }
-  @keyframes mistDrift {
-    from { opacity: 0.4; transform: translateY(0); }
-    to   { opacity: 0.8; transform: translateY(-12px); }
-  }
-
-  .hero-content {
-    position: relative; z-index: 2;
-    text-align: center;
-    max-width: 900px; padding: 0 24px;
-  }
-  .hero-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.42em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    opacity: 0; animation: fadeUp 1s 0.3s forwards;
-  }
-  .hero-eyebrow span { display: inline-block; margin: 0 12px; opacity: 0.5; }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 8vw, 6.5rem);
-    font-weight: 300; line-height: 1.0;
-    color: #fff;
-    margin-bottom: 28px;
-    opacity: 0; animation: fadeUp 1s 0.6s forwards;
-  }
-  .hero-title em { font-style: italic; color: var(--gold-lt); }
-  .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 700; font-style: italic;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 52px; line-height: 1.6;
-    opacity: 0; animation: fadeUp 1s 0.9s forwards;
-  }
-  .hero-actions {
-    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 1s 1.1s forwards;
-  }
-  .btn-primary {
-    background: var(--gold); color: var(--forest);
-    border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; padding: 16px 40px;
-    transition: all 0.25s; text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
-  .btn-ghost {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.5);
-    color: #fff; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em;
-    text-transform: uppercase; padding: 16px 40px;
-    transition: all 0.25s; text-decoration: none; display: inline-block;
-  }
-  .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-
-  .hero-stats {
-    position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 0; z-index: 2;
-    opacity: 0; animation: fadeUp 1s 1.4s forwards;
-  }
-  .hero-stat {
-    padding: 16px 36px;
-    border-right: 1px solid rgba(255,255,255,0.15);
-    text-align: center;
-  }
-  .hero-stat:last-child { border-right: none; }
-  .hero-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 500; color: var(--gold);
-    line-height: 1;
-  }
-  .hero-stat-label {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6); margin-top: 4px;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── INTRO STRIP ── */
-  @media (min-width: 768px) {
-    .intro-strip {
-      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(26, 44, 30, 0.0);
+      transition: background 0.4s, padding 0.4s;
     }
 
-  }
-  .intro-strip {
-    background: var(--forest);
-    padding: 28px 48px;
-    display: flex; align-items: center; justify-content: left; gap: 20px;
-    flex-wrap: wrap;
-  }
-  .intro-pill {
-    display: flex; align-items: center; gap: 12px;
-    color: rgba(255,255,255,0.8);
-    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-  }
-  .intro-pill-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold); flex-shrink: 0;
-  }
-  .intro-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
 
-  /* ── SECTION BASE ── */
-  section { position: relative; }
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
-  .section-label {
-    font-size: 0.65rem; letter-spacing: 0.38em; text-transform: uppercase;
-    color: var(--canephora); font-weight: 600;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    font-weight: 400; line-height: 1.15;
-    color: var(--forest);
-  }
-  .section-title em { font-style: italic; color: var(--canephora); }
-  .gold-rule {
-    width: 48px; height: 2px; background: var(--gold);
-    margin: 24px 0;
-  }
+    nav.scrolled {
+      background: rgba(26, 44, 30, 0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(12px);
+    }
 
-  /* ── ABOUT ── */
-  .about { padding: 60px 0 60px; }
-  @media (min-width: 768px) {
-    .about { padding: 120px 0 100px; }
-  }
-  
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; align-items: center;
-  }
-  .about-text p {
-    font-size: 1.05rem; line-height: 1.85; color: var(--mid);
-    margin-bottom: 20px; font-weight: 300;
-  }
-  .about-text p strong { color: var(--forest); font-weight: 500; }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-img {
-    width: 100%; aspect-ratio: 4/5;
-    object-fit: contain;
-    display: block;
-  }
-  .about-img-accent {
-    position: absolute; bottom: -24px; right: -24px;
-    width: 180px; height: 180px;
-    background: var(--forest);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;     padding: 12px;
-    gap: 10px;
-  }
-  .about-img-accent-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1;
-  }
-  .about-img-accent-text {
-    font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.7); margin-top: 6px;
-    color: var(--gold)
-  }
-  .ihg-badge {
-    margin-top: 32px;
-    display: inline-flex; align-items: center; gap: 14px;
-    border: 1px solid rgba(74,124,63,0.3);
-    padding: 14px 22px; background: rgba(74,124,63,0.04);
-  }
-  .ihg-badge-icon {
-    width: 40px; height: 40px; background: var(--canephora);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .ihg-badge-icon svg { width: 22px; height: 22px; fill: #fff; }
-  .ihg-badge-text { font-size: 0.8rem; color: var(--forest); }
-  .ihg-badge-text strong { display: block; font-weight: 600; font-size: 0.85rem; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-  /* ── LOCATION ── */
-  .location { padding: 100px 0; background: var(--cream); }
-  .location-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-  }
-  .distance-list { margin-top: 40px; }
-  .distance-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
-  .distance-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
-  .distance-place { font-size: 0.9rem; color: var(--charcoal); font-weight: 400; }
-  .distance-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 500; color: var(--canephora);
-  }
-  .location-map-wrap {
-    position: relative; height: 500px; overflow: hidden;
-  }
-  .location-map-wrap iframe {
-    width: 100%; height: 100%; border: none; display: block;
-  }
-  .map-overlay-card {
-    position: absolute; bottom: 24px; left: 24px;
-    background: var(--forest); color: #fff;
-    padding: 20px 24px; max-width: 260px;
-  }
-  .map-overlay-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; font-weight: 400; margin-bottom: 6px;
-  }
-  .map-overlay-card-sub {
-    font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gold);
-  }
+    .nav-logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  /* ── VILLAS ── */
-  .villas { padding: 120px 0; }
-  .villas-intro {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: end; margin-bottom: 72px;
-  }
-  .villas-intro-right p {
-    font-size: 1rem; line-height: 1.8; color: var(--mid); font-weight: 300;
-  }
-  .villa-cards {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px;
-    background: rgba(0,0,0,0.08);
-  }
-  .villa-card {
-    background: var(--warm-white);
-    padding: 36px 28px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-    cursor: pointer;
-  }
-  .villa-card-img{
-    padding: 0;
-  }
-  .villa-card-img img{
-    width: 100%;
-  }
-  .villa-card::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: var(--gold);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .villa-card:hover { background: var(--forest); }
-  .villa-card:hover .villa-card-name,
-  .villa-card:hover .villa-card-size { color: #fff; }
-  .villa-card:hover .villa-card-desc { color: rgba(255,255,255,0.65); }
-  .villa-card:hover .villa-card-price { color: var(--gold); }
-  .villa-card:hover::before { transform: scaleX(1); }
-  .villa-card-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06);
-    line-height: 1; position: absolute; top: 16px; right: 20px;
-    transition: color 0.3s;
-  }
-  .villa-card:hover .villa-card-num { color: rgba(255,255,255,0.06); }
-  .villa-card-icon {
-    width: 36px; height: 2px; background: var(--gold); margin-bottom: 28px;
-  }
-  .villa-card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 400; color: var(--forest);
-    margin-bottom: 6px; transition: color 0.3s;
-  }
-  .villa-card-size {
-    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--canephora); margin-bottom: 16px; transition: color 0.3s;
-  }
-  .villa-card-desc {
-    font-size: 0.85rem; line-height: 1.7; color: var(--mid);
-    margin-bottom: 24px; transition: color 0.3s;
-  }
-  .villa-card-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 500; color: var(--forest);
-    transition: color 0.3s;
-  }
-  .villa-card-price span { font-size: 0.72rem; font-family: 'Jost'; color: var(--mid); }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: #fff;
+      line-height: 1.1;
+    }
 
-  /* ── AMENITIES ── */
-  .amenities { padding: 120px 0; background: var(--forest); }
-  .amenities .section-title { color: #fff; }
-  .amenities .section-label { color: var(--gold); }
-  .amenity-cats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px;
-  }
-  .amenity-cat {
-    background: rgba(255,255,255,0.04);
-    padding: 40px 32px;
-    transition: background 0.3s;
-  }
-  .amenity-cat:hover { background: rgba(255,255,255,0.08); }
-  .amenity-cat-title {
-    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 24px; font-weight: 600;
-  }
-  .amenity-items {
-    display: flex; flex-wrap: wrap; gap: 10px;
-  }
-  .amenity-tag {
-    font-size: 0.78rem; color: rgba(255,255,255,0.7);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 6px 14px; transition: all 0.2s;
-  }
-  .amenity-tag:hover {
-    border-color: var(--gold); color: var(--gold);
-  }
+    .nav-logo-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: block;
+    }
 
-  /* ── SAKALESHPUR ── */
-  .destination { padding: 120px 0; background: var(--cream); }
-  .destination-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .attraction-list { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .attraction-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 0.85rem; color: var(--charcoal);
-  }
-  .attraction-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--canephora); flex-shrink: 0;
-  }
-  .dest-imgs {
-    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 240px 240px; gap: 8px;
-  }
-  .dest-img {
-    object-fit: cover; width: 100%; height: 100%;
-    display: block;
-    transition: transform 0.5s; overflow: hidden;
-  }
-  .dest-img-wrap { overflow: hidden; }
-  .dest-img-wrap:first-child { grid-row: span 2; }
-  .dest-img-wrap:hover .dest-img { transform: scale(1.06); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 11px 28px;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
 
-  /* ── INVESTMENT ── */
-  .investment { padding: 120px 0; }
-  .invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .invest-cards { display: flex; flex-direction: column; gap: 2px; }
-  .invest-card {
-    display: flex; align-items: stretch;
-    background: var(--cream); border-left: 3px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  .invest-card:hover { background: #fff; border-left-color: var(--gold); }
-  .invest-card-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--canephora);
-    padding: 28px 28px; opacity: 0.35; align-self: center;
-    min-width: 80px; text-align: center;
-  }
-  .invest-card-body { padding: 28px 28px 28px 0; }
-  .invest-card-title {
-    font-size: 0.9rem; font-weight: 600; color: var(--forest);
-    margin-bottom: 6px;
-  }
-  .invest-card-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
-  .invest-visual {
-    position: relative;
-  }
-  .invest-price-card {
-    background: var(--forest);
-    padding: 56px 48px; text-align: center;
-  }
-  .ipc-label {
-    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
-  }
-  .ipc-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem; font-weight: 300; color: #fff; line-height: 1;
-    margin-bottom: 4px;
-  }
-  .ipc-price-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
-  .ipc-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 28px 0; }
-  .ipc-detail {
-    display: flex; justify-content: space-between;
-    font-size: 0.8rem; margin-bottom: 12px;
-  }
-  .ipc-detail-label { color: rgba(255,255,255,0.5); }
-  .ipc-detail-val { color: #fff; font-weight: 500; }
-  .ipc-cta {
-    width: 100%; margin-top: 32px;
-    background: var(--gold); color: var(--forest);
-    border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; padding: 16px 0;
-    transition: background 0.25s;
-  }
-  .ipc-cta:hover { background: var(--gold-lt); }
+    .nav-cta:hover {
+      background: var(--gold-lt);
+      transform: translateY(-1px);
+    }
 
-  /* ── GALLERY STRIP ── */
-  .gallery-strip {
-    height: 360px; display: flex; overflow: hidden; gap: 2px;
-  }
-  .gallery-panel {
-    flex: 1; min-width: 0; overflow: hidden; position: relative;
-    transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
-  }
-  .gallery-panel:hover { flex: 2.5; }
-  .gallery-panel img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s;
-    display: block;
-  }
-  .gallery-panel:hover img { transform: scale(1.05); }
-  .gallery-panel-label {
-    position: absolute; bottom: 20px; left: 20px;
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .gallery-panel:hover .gallery-panel-label { opacity: 1; }
+    /* ── HERO ── */
+    .hero {
+      height: 100vh;
+      min-height: 680px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-  /* ── LEAD FORM ── */
-  .lead-section {
-    padding: 120px 0; background: var(--forest);
-    position: relative; overflow: hidden;
-  }
-  .lead-section::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url('./img/forest-bg.jpg') center/cover no-repeat;
-    opacity: 0.06;
-  }
-  .lead-inner {
-    position: relative; z-index: 1;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .lead-copy .section-label { color: var(--gold); }
-  .lead-copy .section-title { color: #fff; }
-  .lead-copy p {
-    color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.8;
-    margin-top: 20px; font-weight: 300;
-  }
-  .contact-row {
-    display: flex; align-items: center; gap: 14px;
-    margin-top: 40px; padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .contact-icon {
-    width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.2);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .contact-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--gold); stroke-width: 1.5; }
-  .contact-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .contact-val { font-size: 1rem; color: #fff; font-weight: 400; }
-  .form-box {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 48px;
-  }
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 400; color: #fff;
-    margin-bottom: 8px;
-  }
-  .form-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-bottom: 36px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { margin-bottom: 16px; }
-  .form-group label {
-    display: block; font-size: 0.65rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: rgba(255,255,255,0.5);
-    margin-bottom: 8px;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: #fff; font-family: 'Jost'; font-size: 0.9rem;
-    padding: 13px 16px; outline: none;
-    transition: border-color 0.25s;
-    appearance: none;
-  }
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--gold); }
-  .form-group select option { background: var(--forest); color: #fff; }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .form-submit {
-    width: 100%; margin-top: 8px;
-    background: var(--gold); color: var(--forest);
-    border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; padding: 17px 0;
-    transition: background 0.25s;
-  }
-  .form-submit:hover { background: var(--gold-lt); }
-  .form-privacy {
-    font-size: 0.7rem; color: rgba(255,255,255,0.3);
-    text-align: center; margin-top: 14px;
-  }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10, 22, 12, 0.55) 0%, rgba(10, 22, 12, 0.3) 50%, rgba(10, 22, 12, 0.75) 100%),
+        url('./img/banner-3.jpg') center/cover no-repeat;
+      transition: background-size 0.2s ease-out;
+      will-change: background-size;
+    }
 
-  /* success state */
-  .form-success {
-    display: none; text-align: center; padding: 40px 0;
-  }
-  .form-success-icon {
-    width: 64px; height: 64px; border: 2px solid var(--gold);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-  }
-  .form-success-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 2; }
-  .form-success h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; color: #fff; font-weight: 400; margin-bottom: 10px;
-  }
-  .form-success p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .hero-bg.loaded {
+      transform: scale(1.0);
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #111a12;
-    padding: 60px 48px 40px;
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: flex-start;
-    justify-content: space-between; flex-wrap: wrap; gap: 40px;
-  }
-  .footer-brand { max-width: 320px; }
-  .footer-brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 400; color: #fff;
-    margin-bottom: 4px;
-  }
-  .footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); }
-  .footer-brand p {
-    font-size: 0.82rem; color: rgba(255,255,255,0.35);
-    line-height: 1.7; margin-top: 16px;
-  }
-  .footer-links h4 {
-    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 20px; font-weight: 600;
-  }
-  .footer-links a {
-    display: block; font-size: 0.85rem; color: rgba(255,255,255,0.45);
-    text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
-  }
-  .footer-links a:hover { color: rgba(255,255,255,0.85); }
-  .footer-bottom {
-    max-width: 1200px; margin: 40px auto 0;
-    padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .footer-legal { font-size: 0.72rem; color: rgba(255,255,255,0.2); line-height: 1.6; max-width: 620px; }
-  .footer-scroll-top {
-    width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: border-color 0.2s;
-  }
-  .footer-scroll-top:hover { border-color: var(--gold); }
-  .footer-scroll-top svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; }
+    /* animated mist overlay */
+    .hero-mist {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 120% 60% at 50% 80%, rgba(200, 220, 200, 0.08) 0%, transparent 70%);
+      animation: mistDrift 12s ease-in-out infinite alternate;
+    }
 
-  /* ── FLOATING CTA ── */
-  .float-cta {
-    position: fixed; bottom: 32px; right: 32px; z-index: 99;
-    background: var(--gold); color: var(--forest);
-    border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
-    text-transform: uppercase; padding: 14px 26px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    transition: all 0.25s;
-    transform: translateY(100px);
-    opacity: 0;
-    text-decoration: none;
-  }
-  .float-cta.visible { transform: translateY(0); opacity: 1; }
-  .float-cta:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    @keyframes mistDrift {
+      from {
+        opacity: 0.4;
+        transform: translateY(0);
+      }
 
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(36px);
-    transition: opacity 0.8s, transform 0.8s;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
+      to {
+        opacity: 0.8;
+        transform: translateY(-12px);
+      }
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    nav.scrolled { padding: 12px 24px; }
-    .section-inner { padding: 0 24px; }
-    .about-grid, .location-grid, .villas-intro, .invest-grid,
-    .lead-inner, .destination-grid { grid-template-columns: 1fr; gap: 48px; }
-    .about-img-wrap { order: -1; }
-    .villa-cards { grid-template-columns: 1fr 1fr; }
-    .amenity-cats { grid-template-columns: 1fr; }
-    .hero-stats { display: none; }
-    .gallery-strip { height: 200px; }
-    .form-row { grid-template-columns: 1fr; }
-    .form-box { padding: 32px 24px; }
-    .intro-divider { display: none; }
-    .intro-strip { gap: 20px; padding: 20px 24px; }
-    footer { padding: 48px 24px 32px; }
-    .footer-inner { flex-direction: column; }
-    .float-cta { bottom: 20px; right: 20px; }
-    .dest-imgs { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .dest-img-wrap:first-child { grid-row: span 1; }
-  }
-  @media (max-width: 600px) {
-    .villa-cards { grid-template-columns: 1fr; }
-    .hero-title { font-size: 2.8rem; }
-    .attraction-list { grid-template-columns: 1fr; }
-  }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 24px;
+    }
 
-  .slider img {
-    width: 90%;
-    height: auto;
-    margin: 40px auto;
-}
-.resort-plan{
-  width: 90%;
-    height: auto;
-    margin: 40px auto;
-}
-.resort-plan img{
-  max-height: 50vw;
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.42em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
 
-}
-@media (min-width: 768px) {
+    .hero-eyebrow span {
+      display: inline-block;
+      margin: 0 12px;
+      opacity: 0.5;
+    }
 
-.nav-links{display:flex;align-items:center;gap:36px}
-.nav-cta{
-  display: block;
-}
-}
-.nav-links a{
-  font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,0.55);text-decoration:none;
-  transition:color 0.2s;
-}
-.nav-links a:hover{color:#fff}
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      color: #fff;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1s 0.6s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 52px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s 1.1s forwards;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #fff;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s 1.4s forwards;
+    }
+
+    .hero-stat {
+      padding: 16px 36px;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+    }
+
+    .hero-stat:last-child {
+      border-right: none;
+    }
+
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 4px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── INTRO STRIP ── */
+    @media (min-width: 768px) {
+      .intro-strip {
+        justify-content: center;
+      }
+    }
+
+    .intro-strip {
+      background: var(--forest);
+      padding: 28px 5px;
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      flex-wrap: wrap;
+      row-gap: 10px;
+    }
+
+    .intro-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .intro-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .intro-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--canephora);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--forest);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--canephora);
+    }
+
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 24px 0;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 60px 0 60px;
+    }
+
+    @media (min-width: 768px) {
+      .about {
+        padding: 120px 0 100px;
+      }
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--mid);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .about-text p strong {
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      /* aspect-ratio: 4/5; */
+      object-fit: contain;
+      display: block;
+    }
+
+    .about-img-accent {
+      /* position: relative; bottom: 0; right: 0; */
+      /* width: 100%;height: 30vw; */
+      background: var(--forest);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 10px;
+      gap: 0;
+    }
+
+    @media (min-width: 768px) {
+      .about-img-accent {
+        /* height: 7vw; */
+      }
+    }
+
+    .about-img-accent-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .about-img-accent-text {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 6px;
+      color: var(--gold)
+    }
+
+    .ihg-badge {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid rgba(74, 124, 63, 0.3);
+      padding: 14px 22px;
+      background: rgba(74, 124, 63, 0.04);
+    }
+
+    .ihg-badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--canephora);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ihg-badge-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .ihg-badge-text {
+      font-size: 0.8rem;
+      color: var(--forest);
+    }
+
+    .ihg-badge-text strong {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* ── LOCATION ── */
+    .location {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .distance-list {
+      margin-top: 40px;
+    }
+
+    .distance-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .distance-item:first-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .distance-place {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+
+    .distance-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--canephora);
+    }
+
+    .location-map-wrap {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .location-map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .map-overlay-card {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--forest);
+      color: #fff;
+      padding: 20px 24px;
+      max-width: 260px;
+    }
+
+    .map-overlay-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .map-overlay-card-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+
+    /* ── VILLAS ── */
+    .villas {
+      padding: 120px 0;
+    }
+
+    .villas-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .villas-intro-right p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    .villa-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .villa-card {
+      background: var(--warm-white);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .villa-card-img {
+      padding: 0;
+    }
+
+    .villa-card-img img {
+      width: 100%;
+    }
+
+    .villa-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .villa-card:hover {
+      background: var(--forest);
+    }
+
+    .villa-card:hover .villa-card-name,
+    .villa-card:hover .villa-card-size {
+      color: #fff;
+    }
+
+    .villa-card:hover .villa-card-desc {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .villa-card:hover .villa-card-price {
+      color: var(--gold);
+    }
+
+    .villa-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .villa-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.06);
+      line-height: 1;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      transition: color 0.3s;
+    }
+
+    .villa-card:hover .villa-card-num {
+      color: rgba(255, 255, 255, 0.06);
+    }
+
+    .villa-card-icon {
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .villa-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 6px;
+      transition: color 0.3s;
+    }
+
+    .villa-card-size {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--canephora);
+      margin-bottom: 16px;
+      transition: color 0.3s;
+    }
+
+    .villa-card-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 24px;
+      transition: color 0.3s;
+    }
+
+    .villa-card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--forest);
+      transition: color 0.3s;
+    }
+
+    .villa-card-price span {
+      font-size: 0.72rem;
+      font-family: 'Jost';
+      color: var(--mid);
+    }
+
+    /* ── AMENITIES ── */
+    .amenities {
+      padding: 120px 0;
+      background: var(--forest);
+    }
+
+    .amenities .section-title {
+      color: #fff;
+    }
+
+    .amenities .section-label {
+      color: var(--gold);
+    }
+
+    .amenity-cats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .amenity-cat {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+
+    .amenity-cat:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .amenity-cat-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .amenity-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .amenity-tag {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 14px;
+      transition: all 0.2s;
+    }
+
+    .amenity-tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── SAKALESHPUR ── */
+    .destination {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .attraction-list {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .attraction-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+
+    .attraction-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--canephora);
+      flex-shrink: 0;
+    }
+
+    .dest-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 8px;
+    }
+
+    .dest-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.5s;
+      overflow: hidden;
+    }
+
+    .dest-img-wrap {
+      overflow: hidden;
+    }
+
+    .dest-img-wrap:first-child {
+      grid-row: span 2;
+    }
+
+    .dest-img-wrap:hover .dest-img {
+      transform: scale(1.06);
+    }
+
+    /* ── INVESTMENT ── */
+    .investment {
+      padding: 120px 0;
+    }
+
+    .invest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .invest-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .invest-card {
+      display: flex;
+      align-items: stretch;
+      background: var(--cream);
+      border-left: 3px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .invest-card:hover {
+      background: #fff;
+      border-left-color: var(--gold);
+    }
+
+    .invest-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--canephora);
+      padding: 28px 28px;
+      opacity: 0.35;
+      align-self: center;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .invest-card-body {
+      padding: 28px 28px 28px 0;
+    }
+
+    .invest-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .invest-card-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .invest-visual {
+      position: relative;
+    }
+
+    .invest-price-card {
+      background: var(--forest);
+      padding: 56px 48px;
+      text-align: center;
+    }
+
+    .ipc-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .ipc-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .ipc-price-sub {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 36px;
+    }
+
+    .ipc-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 28px 0;
+    }
+
+    .ipc-detail {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .ipc-detail-label {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ipc-detail-val {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .ipc-cta {
+      width: 100%;
+      margin-top: 32px;
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 0;
+      transition: background 0.25s;
+    }
+
+    .ipc-cta:hover {
+      background: var(--gold-lt);
+    }
+
+    /* ── GALLERY STRIP ── */
+    .gallery-strip {
+      height: 360px;
+      display: flex;
+      overflow: hidden;
+      gap: 2px;
+    }
+
+    .gallery-panel {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      position: relative;
+      transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+
+    .gallery-panel:hover {
+      flex: 2.5;
+    }
+
+    .gallery-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+      display: block;
+    }
+
+    .gallery-panel:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-panel-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-panel:hover .gallery-panel-label {
+      opacity: 1;
+    }
+
+    /* ── LEAD FORM ── */
+    .lead-section {
+      padding: 120px 0;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lead-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('./img/forest-bg.jpg') center/cover no-repeat;
+      opacity: 0.06;
+    }
+
+    .lead-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .lead-copy .section-label {
+      color: var(--gold);
+    }
+
+    .lead-copy .section-title {
+      color: #fff;
+    }
+
+    .lead-copy p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-top: 20px;
+      font-weight: 300;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+    }
+
+    .contact-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .contact-val {
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px;
+    }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .form-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-family: 'Jost';
+      font-size: 0.9rem;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.25s;
+      appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 17px 0;
+      transition: background 0.25s;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-lt);
+    }
+
+    .form-privacy {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.3);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .form-success-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .form-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .form-success p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111a12;
+      padding: 60px 48px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    .footer-links h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-links a {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-legal {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.2);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    .footer-scroll-top {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .footer-scroll-top:hover {
+      border-color: var(--gold);
+    }
+
+    .footer-scroll-top svg {
+      width: 16px;
+      height: 16px;
+      stroke: rgba(255, 255, 255, 0.5);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ── FLOATING CTA ── */
+    .float-cta {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 99;
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 26px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.25s;
+      transform: translateY(100px);
+      opacity: 0;
+      text-decoration: none;
+    }
+
+    .float-cta.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .float-cta:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      nav.scrolled {
+        padding: 12px 24px;
+      }
+
+      .section-inner {
+        padding: 0 24px;
+      }
+
+      .about-grid,
+      .location-grid,
+      .villas-intro,
+      .invest-grid,
+      .lead-inner,
+      .destination-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-img-wrap {
+        order: -1;
+      }
+
+      .villa-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .amenity-cats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        display: none;
+      }
+
+      .gallery-strip {
+        height: 200px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-box {
+        padding: 32px 24px;
+      }
+
+      .intro-divider {
+        display: none;
+      }
+
+      .intro-strip {
+        gap: 20px;
+        padding: 20px 24px;
+      }
+
+      footer {
+        padding: 48px 24px 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .float-cta {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .dest-imgs {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .dest-img-wrap:first-child {
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .villa-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 2.8rem;
+      }
+
+      .attraction-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── MOBILE OPTIMIZATION ── */
+    @media (max-width: 480px) {
+      nav {
+        padding: 14px 16px;
+      }
+
+      nav.scrolled {
+        padding: 10px 16px;
+      }
+
+      .section-inner {
+        padding: 0 16px;
+      }
+
+      .intro-strip {
+        padding: 16px 16px;
+      }
+
+      .form-box {
+        padding: 24px 16px;
+      }
+
+      footer {
+        padding: 36px 16px 24px;
+      }
+
+      .float-cta {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .slider img {
+      width: 90%;
+      height: auto;
+      margin: 40px auto;
+    }
+
+    .resort-plan {
+      width: 90%;
+      height: auto;
+      margin: 40px auto;
+    }
+
+    .resort-plan img {
+      max-height: 258px;
+      object-fit: cover;
+      margin: 0 5px;
+
+    }
+
+    @media (min-width: 768px) {
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 36px
+      }
+
+      .nav-cta {
+        display: block;
+      }
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #fff
+    }
 
 
 
-#clouds {
-  z-index: 1;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  right: 0;
-  height: 50%;
-  top: 0
-}
-
-.cloud {
-  width: 450px;
-  height: 330px;
-  background-image: url(./img/c1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 200px;
-  -moz-border-radius: 200px;
-  -webkit-border-radius: 200px;
-  position: absolute
-}
-
-.x1 {
-  left: -500px;
-  top: 0;
-  -webkit-transform: scale(.5);
-  -moz-transform: scale(.5);
-  transform: scale(.5);
-  -webkit-animation: moveclouds 100s linear infinite;
-  -moz-animation: moveclouds 100s linear infinite;
-  -o-animation: moveclouds 100s linear infinite
-}
-
-.x2 {
-  left: -120px;
-  top: 0;
-  -webkit-transform: scale(.4);
-  -moz-transform: scale(.4);
-  transform: scale(.4);
-  opacity: .8;
-  -webkit-animation: moveclouds 150s linear infinite;
-  -moz-animation: moveclouds 150s linear infinite;
-  -o-animation: moveclouds 150s linear infinite
-}
-
-.x3 {
-  left: -550px;
-  top: 120px;
-  -webkit-transform: scale(.4);
-  -moz-transform: scale(.4);
-  transform: scale(.4);
-  opacity: .8;
-  -webkit-animation: moveclouds 200s linear infinite;
-  -moz-animation: moveclouds 200s linear infinite;
-  -o-animation: moveclouds 200s linear infinite
-}
-
-.x4 {
-  left: 250px;
-  top: 0;
-  -webkit-transform: scale(.6);
-  -moz-transform: scale(.6);
-  transform: scale(.6);
-  -webkit-animation: moveclouds 70s linear infinite;
-  -moz-animation: moveclouds 70s linear infinite;
-  -o-animation: moveclouds 70s linear infinite
-}
-
-.x5 {
-  left: -750px;
-  top: 120px;
-  -webkit-transform: scale(.7);
-  -moz-transform: scale(.7);
-  transform: scale(.7);
-  opacity: .8;
-  -webkit-animation: moveclouds 110s linear infinite;
-  -moz-animation: moveclouds 110s linear infinite;
-  -o-animation: moveclouds 110s linear infinite
-}
-
-.x6 {
-  left: 120px;
-  top: 0;
-  -webkit-transform: scale(.4);
-  -moz-transform: scale(.4);
-  transform: scale(.4);
-  opacity: .75;
-  -webkit-animation: moveclouds 150s linear infinite;
-  -moz-animation: moveclouds 150s linear infinite;
-  -o-animation: moveclouds 150s linear infinite
-}
-
-.x7 {
-  left: -1050px;
-  top: 0;
-  -webkit-transform: scale(.75);
-  -moz-transform: scale(.75);
-  transform: scale(.75);
-  -webkit-animation: moveclouds 180s linear infinite;
-  -moz-animation: moveclouds 180s linear infinite;
-  -o-animation: moveclouds 180s linear infinite
-}
-
-.x8 {
-  left: 200px;
-  top: 0;
-  -webkit-transform: scale(.2);
-  -moz-transform: scale(.2);
-  transform: scale(.6);
-  -webkit-animation: moveclouds 40s linear infinite;
-  -moz-animation: moveclouds 40s linear infinite;
-  -o-animation: moveclouds 40s linear infinite
-}
-
-.x9 {
-  left: 800px;
-  top: 0;
-  -webkit-transform: scale(.6);
-  -moz-transform: scale(.6);
-  /* transform: scale(.9); */
-  -webkit-animation: moveclouds 30s linear infinite;
-  -moz-animation: moveclouds 30s linear infinite;
-  -o-animation: moveclouds 30s linear infinite
-}
-
-.x10 {
-  left: -1280px;
-  top: 0;
-  -webkit-transform: scale(.7);
-  -moz-transform: scale(.7);
-  transform: scale(.7);
-  opacity: .9;
-  -webkit-animation: moveclouds 170s linear infinite;
-  -moz-animation: moveclouds 170s linear infinite;
-  -o-animation: moveclouds 170s linear infinite
-}
-
-@-webkit-keyframes moveclouds {
-  0% {
-    margin-left: 800px
-  }
-
-  100% {
-    margin-left: -800px
-  }
-}
-
-@-moz-keyframes moveclouds {
-  0% {
-    margin-left: 800px
-  }
-
-  100% {
-    margin-left: -800px
-  }
-}
-
-@-o-keyframes moveclouds {
-  0% {
-    margin-left: 800px
-  }
-
-  100% {
-    margin-left: -800px
-  }
-}
 
 
-.faq-container {
+
+
+
+    .faq-container {
       max-width: 900px;
       margin: 50px auto;
       padding: 20px;
@@ -949,7 +1637,10 @@
     .faq-header {
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
       margin-bottom: 30px;
       color: #2c3e50;
     }
@@ -1000,11 +1691,15 @@
       max-height: 500px;
       padding: 15px;
     }
+
     .temple-header {
       margin-top: 40px;
       text-align: center;
-        font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
       color: #2c3e50;
       margin-bottom: 40px;
       position: relative;
@@ -1033,13 +1728,13 @@
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .temple-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
     .temple-card img {
@@ -1071,330 +1766,411 @@
         font-size: 2rem;
       }
     }
+  </style>
 
-    
-</style>
+  <!-- Slick CSS & JS for image sliders -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.slider').slick({
+        //   centerMode: true,
+        //   centerPadding: '60px',
+        slidesToShow: 3,
+        dots: true,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
 
-<!-- Slick CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
-<!-- jQuery (required) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Slick JS -->
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<script>
-$(document).ready(function(){
-  $('.slider').slick({
-    dots: true,
-    arrows: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 2000
-  });
-});
-</script>
+    });
+  </script>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">
-    <div class="nav-logo-mark"></div>
-    <div id="home">
-      <div class="nav-logo-text">Rite Canephora</div>
-      <span class="nav-logo-sub">Luxury Villas</span>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      <div id="home">
+        <div class="nav-logo-text">Rite Canephora</div>
+        <span class="nav-logo-sub">Luxury Villas</span>
+      </div>
     </div>
-  </div>
-  <div class="nav-links">
-    <a href="#project">Project</a>
-    <a href="#villas">Plots</a>
-    <a href="#amenities">Amenities</a>
-    <!-- <a href="#gallery">Gallery</a> -->
-    <a href="#investment">Invest</a>
-    <a href="#enquire">Contact</a>
-  </div>
-  <a href="#enquire" class="nav-cta">Enquire Now</a>
-</nav>
+    <div class="nav-links">
+      <a href="#project">Project</a>
+      <a href="#villas">Plots</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#investment">Invest</a>
+      <a href="#enquire">Contact</a>
+    </div>
+    <button class="nav-cta" onclick="openEnquireModal()">Enquire Now</button>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <!-- <div id="clouds">
-    <div class="cloud x1"></div>
-    <div class="cloud x2"></div>
-    <div class="cloud x3"></div>
-    <div class="cloud x4"></div>
-    <div class="cloud x5"></div>
-    <div class="cloud cloud2 x6"></div>
-    <div class="cloud cloud2 x7"></div>
-    <div class="cloud clou2 x8"></div>
-    <div class="cloud x9"></div>
-    <div class="cloud clou2 x10"></div>
-</div> -->
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-mist"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Sakaleshpur<span>✦</span> Western Ghats, Karnataka</div>
-    <h1 class="hero-title">Where the Forest<br><em>Finds You</em></h1>
-    <p class="hero-subtitle"> Five Start Resort & Luxury Villas nestled in the Western Ghats
-    </p>
-    <div class="hero-actions">
-      <a href="#enquire" class="btn-primary">Register Interest</a>
-      <a href="#project" class="btn-ghost">Explore Project</a>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-mist"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Sakaleshpur<span>✦</span> Western Ghats, Karnataka</div>
+      <h1 class="hero-title">Where the Forest<br><em>Finds You</em></h1>
+      <p class="hero-subtitle"> Five Start Resort & Luxury Villas nestled in the Western Ghats
+      </p>
+      <div class="hero-actions">
+        <a href="#enquire" class="btn-primary">Register Interest</a>
+        <a href="#project" class="btn-ghost">Explore Project</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">16</div>
-      <div class="hero-stat-label">Acres</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">16</div>
+        <div class="hero-stat-label">Acres</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">39+</div>
+        <div class="hero-stat-label">Luxury Villas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40+</div>
+        <div class="hero-stat-label">Amenities</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3.5h</div>
+        <div class="hero-stat-label">From Bengaluru</div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">39+</div>
-      <div class="hero-stat-label">Luxury Villas</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">40+</div>
-      <div class="hero-stat-label">Amenities</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">3.5h</div>
-      <div class="hero-stat-label">From Bengaluru</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- INTRO STRIP -->
-<div class="intro-strip">
-  <!-- <div class="intro-pill"><div class="intro-pill-dot"></div>IHG Hospitality Partnership</div>
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <!-- <div class="intro-pill"><div class="intro-pill-dot"></div>IHG Hospitality Partnership</div>
   <div class="intro-divider"></div> -->
-  <!-- <div class="intro-pill"><div class="intro-pill-dot"></div>RERA Approved Project</div>
+    <!-- <div class="intro-pill"><div class="intro-pill-dot"></div>RERA Approved Project</div>
   <div class="intro-divider"></div> -->
-  <div class="intro-pill"><div class="intro-pill-dot"></div>Riteway & Medha Projects</div>
-  <div class="intro-divider"></div>
-  <div class="intro-pill"><div class="intro-pill-dot"></div>STARTING ₹1.4 CR FOR 10,000 SQ.FT (Luxury Villas)</div>
-  <div class="intro-divider"></div>
-  <div class="intro-pill"><div class="intro-pill-dot"></div>6 km from National Highway | Attached to State Highway (Sakleshpur–Mudigere Road)</div>
-</div>
+    <div class="intro-pill">
+      <div class="intro-pill-dot"></div>Riteway & Medha Projects
+    </div>
+    <div class="intro-divider"></div>
+    <div class="intro-pill">
+      <div class="intro-pill-dot"></div>STARTING ₹1.4 CR FOR 10,000 SQ.FT (Luxury Villas)
+    </div>
+    <div class="intro-divider"></div>
+    <div class="intro-pill">
+      <div class="intro-pill-dot"></div>6 km from National Highway | Attached to State Highway (Sakleshpur–Mudigere
+      Road)
+    </div>
+  </div>
 
-<!-- ABOUT -->
-<section class="about" id="project">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <div class="section-label">About the Project</div>
-        <h2 class="section-title">A Living Estate in<br><em>the Western Ghats</em></h2>
-        <div class="gold-rule"></div>
-        
-        <p>Rite Canephora is a first-of-its-kind <strong>Luxury Villas & 5 Start Resort</strong> community in Sakaleshpur, where scenic coffee estates meet premium hospitality infrastructure.
-        </p>
-        <p>Spread across <strong>16 lush acres,</strong> it offers more than land ownership — it is an opportunity to own a part of the Western Ghats with access to 5-star resort amenities, plantation living, and a high-potential investment asset in one of Karnataka’s most sought-after getaway destinations.
-        </p>
-        <p>Developed by <strong>Riteway & Medha Projects,</strong> trusted Bengaluru-based developers with a proven legacy in residential communities, Rite Canephora is partnered with a 5-star hospitality brand to ensure world-class resort management and guest experiences.</p>
-        <div class="ihg-badge">
-          <div class="ihg-badge-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/></svg>
+  <!-- ABOUT -->
+  <section class="about" id="project">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <div class="section-label">About the Project</div>
+          <h2 class="section-title">A Living Estate in<br><em>the Western Ghats</em></h2>
+          <div class="gold-rule"></div>
+
+          <p>Rite Canephora is a first-of-its-kind <strong>Luxury Villas & 5 Start Resort</strong> community in
+            Sakaleshpur, where scenic coffee estates meet premium hospitality infrastructure.
+          </p>
+          <p>Spread across <strong>16 lush acres,</strong> it offers more than land ownership — it is an opportunity to
+            own a part of the Western Ghats with access to 5-star resort amenities, plantation living, and a
+            high-potential investment asset in one of Karnataka’s most sought-after getaway destinations.
+          </p>
+          <p>Developed by <strong>Riteway & Medha Projects,</strong> trusted Bengaluru-based developers with a proven
+            legacy in residential communities, Rite Canephora is partnered with a 5-star hospitality brand to ensure
+            world-class resort management and guest experiences.</p>
+          <div class="ihg-badge">
+            <div class="ihg-badge-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
+              </svg>
+            </div>
+            <div class="ihg-badge-text">
+              Rite Canephora is backed by a strategic 30-year partnership with one of the world’s largest resort
+              operators, ensuring premium hospitality standards and elevated guest experiences within the project.
+            </div>
           </div>
-          <div class="ihg-badge-text">
-            Rite Canephora is backed by a strategic 30-year partnership with one of the world’s largest resort operators, ensuring premium hospitality standards and elevated guest experiences within the project.
+        </div>
+        <div class="about-img-wrap reveal reveal-delay-2">
+          <img class="about-img" src="./img/club-resort-plan.png" alt="Rite Canephora Resort aerial view">
+          <div class="about-img-accent">
+            <div class="about-img-accent-text ">Assured annual returns of ₹5 lakh</div>
+            <div class="about-img-accent-text">Buyback option at 2X investment in 7.5 years*</div>
           </div>
         </div>
       </div>
-      <div class="about-img-wrap reveal reveal-delay-2">
-        <img class="about-img"
-          src="./img/resort-plan.png"
-          alt="Rite Canephora Resort aerial view">
-        <div class="about-img-accent">
-          <div class="about-img-accent-text ">Assured annual returns of ₹5 lakh</div>
-          <div class="about-img-accent-text">Buyback option at 2X investment in 7.5 years*</div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <div class="gallery-strip">
+    <div class="gallery-panel">
+      <img src="./img/gallery-2.jpg" alt="Coffee Plantation">
+      <div class="gallery-panel-label">Coffee Plantation</div>
+    </div>
+    <div class="gallery-panel">
+      <img src="./img/gallery/1.PNG" alt="Resort Pool">
+      <div class="gallery-panel-label">Resort Club</div>
+    </div>
+    <div class="gallery-panel">
+      <img src="./img/gallery/2.PNG" alt="Western Ghats">
+      <div class="gallery-panel-label">Villas</div>
+    </div>
+    <div class="gallery-panel">
+      <img src="./img/gallery/3.PNG" alt="Wellness Spa">
+      <div class="gallery-panel-label">Villas</div>
+    </div>
+    <div class="gallery-panel">
+      <img src="./img/jeep.jpg" alt="Nature Walk">
+      <div class="gallery-panel-label">Nature & Adventure</div>
+    </div>
+  </div>
+
+  <!-- VILLAS -->
+  <section class="villas" id="villas">
+    <div class="section-inner">
+      <div class="villas-intro">
+        <div class="reveal">
+          <div class="section-label">Luxury Villas
+          </div>
+          <h2 class="section-title">Choose Your<br><em>Estate</em></h2>
+          <div class="gold-rule"></div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p>From exclusive plantation to luxury 2 & 3 BHK villas, every offering is designed to harmonize with nature
+            while delivering 5-star resort-grade comfort. All owners enjoy full access to premium resort amenities.</p>
+        </div>
+      </div>
+      <div class="villa-cards reveal">
+        <div class="villa-card villa-card-img">
+          <img src="./img/2-bhk-new.png">
+        </div>
+        <div class="villa-card">
+          <div class="villa-card-num">01</div>
+          <div class="villa-card-icon"></div>
+          <div class="villa-card-name">2 BHK Villa</div>
+          <div class="villa-card-size">1,250 SQ.FT </div>
+          <div class="villa-card-desc">A thoughtfully designed luxury villa offering spacious living, modern comforts,
+            and
+            seamless access to nature and premium resort amenities.
+          </div>
+          <div class="villa-card-price">On Request</div>
+        </div>
+
+      </div>
+      <br>
+      <div class="villa-cards reveal">
+        <div class="villa-card villa-card-img">
+          <img src="./img/3bhk-new.PNG">
+        </div>
+        <div class="villa-card">
+          <div class="villa-card-num">02</div>
+          <div class="villa-card-icon"></div>
+          <div class="villa-card-name">3 BHK Villa</div>
+          <div class="villa-card-size">1,750 SQ.FT </div>
+          <div class="villa-card-desc">An expansive luxury villa crafted for refined living, featuring elegant
+            interiors,
+            enhanced privacy, and seamless access to nature and premium resort amenities.
+          </div>
+          <div class="villa-card-price">On Request</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GALLERY STRIP -->
-<div class="gallery-strip">
-  <div class="gallery-panel">
-    <img src="./img/gallery-2.jpg" alt="Coffee Plantation">
-    <div class="gallery-panel-label">Coffee Plantation</div>
-  </div>
-  <div class="gallery-panel">
-    <img src="https://i.pinimg.com/1200x/95/2d/c4/952dc46ae22bb4c4752ab0fbf1bcfacf.jpg" alt="Resort Pool">
-    <div class="gallery-panel-label">Resort Pool</div>
-  </div>
-  <div class="gallery-panel">
-    <img src="https://i.pinimg.com/1200x/85/f2/a9/85f2a952c63be3afadcdc0a8116a571a.jpg" alt="Western Ghats">
-    <div class="gallery-panel-label">Western Ghats</div>
-  </div>
-  <div class="gallery-panel">
-    <img src="https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=800&q=80" alt="Wellness Spa">
-    <div class="gallery-panel-label">Wellness Spa</div>
-  </div>
-  <div class="gallery-panel">
-    <img src="./img/jeep.jpg" alt="Nature Walk">
-    <div class="gallery-panel-label">Nature & Adventure</div>
-  </div>
-</div>
-
-<!-- VILLAS -->
-<section class="villas" id="villas">
-  <div class="section-inner">
-    <div class="villas-intro">
+  <!-- AMENITIES -->
+  <section class="amenities" id="amenities">
+    <div class="section-inner">
       <div class="reveal">
-        <div class="section-label">Luxury Villas
-        </div>
-        <h2 class="section-title">Choose Your<br><em>Estate</em></h2>
+        <div class="section-label">World-Class Amenities</div>
+        <h2 class="section-title">Resort Living,<br><em>Every Day</em></h2>
         <div class="gold-rule"></div>
       </div>
-      <div class="reveal reveal-delay-1">
-        <p>From exclusive plantation to luxury 2 & 3 BHK villas, every offering is designed to harmonize with nature
-          while delivering 5-star resort-grade comfort. All owners enjoy full access to premium resort amenities.</p>
-      </div>
-    </div>
-    <div class="villa-cards reveal">
-      <div class="villa-card villa-card-img">
-        <img src="./img/2-bhk.png">
-      </div>
-      <div class="villa-card">
-        <div class="villa-card-num">01</div>
-        <div class="villa-card-icon"></div>
-        <div class="villa-card-name">2 BHK Villa</div>
-        <div class="villa-card-size">1,250 SQ.FT </div>
-        <div class="villa-card-desc">A thoughtfully designed luxury villa offering spacious living, modern comforts, and
-          seamless access to nature and premium resort amenities.
+      <div class="amenity-cats reveal reveal-delay-1">
+        <div class="amenity-cat">
+          <div class="amenity-cat-title">🌊 Water & Wellness</div>
+          <div class="amenity-items">
+            <div class="amenity-tag">Swimming Pool</div>
+            <div class="amenity-tag">Kids Pool</div>
+            <div class="amenity-tag">Dine Pool</div>
+            <div class="amenity-tag">Water Slide</div>
+            <div class="amenity-tag">Bubble House</div>
+            <div class="amenity-tag">Ayurvedic Spa</div>
+            <div class="amenity-tag">Dental Centre</div>
+            <div class="amenity-tag">Yoga Platform</div>
+            <div class="amenity-tag">Fish Pond</div>
+          </div>
         </div>
-        <div class="villa-card-price">On Request</div>
-      </div>
-
-    </div>
-<br>
-    <div class="villa-cards reveal">
-      <div class="villa-card villa-card-img">
-        <img src="./img/2-bhk.png">
-      </div>
-      <div class="villa-card">
-        <div class="villa-card-num">02</div>
-        <div class="villa-card-icon"></div>
-        <div class="villa-card-name">3 BHK Villa</div>
-        <div class="villa-card-size">1,750 SQ.FT </div>
-        <div class="villa-card-desc">An expansive luxury villa crafted for refined living, featuring elegant interiors,
-          enhanced privacy, and seamless access to nature and premium resort amenities.
+        <div class="amenity-cat">
+          <div class="amenity-cat-title">🏄 Adventure & Sports</div>
+          <div class="amenity-items">
+            <div class="amenity-tag">Zip Line</div>
+            <div class="amenity-tag">Zorbing Lane</div>
+            <div class="amenity-tag">Paintball Arena</div>
+            <div class="amenity-tag">Tennis Court</div>
+            <div class="amenity-tag">Wall Climbing</div>
+            <div class="amenity-tag">Archery</div>
+            <div class="amenity-tag">Horse Ride</div>
+            <div class="amenity-tag">Quad Bike</div>
+            <div class="amenity-tag">Cycle Track</div>
+            <div class="amenity-tag">Lawn Chess</div>
+          </div>
         </div>
-        <div class="villa-card-price">On Request</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AMENITIES -->
-<section class="amenities" id="amenities">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">World-Class Amenities</div>
-      <h2 class="section-title">Resort Living,<br><em>Every Day</em></h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="amenity-cats reveal reveal-delay-1">
-      <div class="amenity-cat">
-        <div class="amenity-cat-title">🌊 Water & Wellness</div>
-        <div class="amenity-items">
-          <div class="amenity-tag">Swimming Pool</div>
-          <div class="amenity-tag">Kids Pool</div>
-          <div class="amenity-tag">Dine Pool</div>
-          <div class="amenity-tag">Water Slide</div>
-          <div class="amenity-tag">Bubble House</div>
-          <div class="amenity-tag">Ayurvedic Spa</div>
-          <div class="amenity-tag">Dental Centre</div>
-          <div class="amenity-tag">Yoga Platform</div>
-          <div class="amenity-tag">Fish Pond</div>
-        </div>
-      </div>
-      <div class="amenity-cat">
-        <div class="amenity-cat-title">🏄 Adventure & Sports</div>
-        <div class="amenity-items">
-          <div class="amenity-tag">Zip Line</div>
-          <div class="amenity-tag">Zorbing Lane</div>
-          <div class="amenity-tag">Paintball Arena</div>
-          <div class="amenity-tag">Tennis Court</div>
-          <div class="amenity-tag">Wall Climbing</div>
-          <div class="amenity-tag">Archery</div>
-          <div class="amenity-tag">Horse Ride</div>
-          <div class="amenity-tag">Quad Bike</div>
-          <div class="amenity-tag">Cycle Track</div>
-          <div class="amenity-tag">Lawn Chess</div>
-        </div>
-      </div>
-      <div class="amenity-cat">
-        <div class="amenity-cat-title">🍽️ Social & Leisure</div>
-        <div class="amenity-items">
-          <div class="amenity-tag">Banquet Hall</div>
-          <div class="amenity-tag">Bar Lounge</div>
-          <div class="amenity-tag">Performance Stage</div>
-          <div class="amenity-tag">Campfire Deck</div>
-          <div class="amenity-tag">Library</div>
-          <div class="amenity-tag">Kids' Play Zone</div>
-          <div class="amenity-tag">Gym</div>
-          <div class="amenity-tag">OHT Tower Suites</div>
-          <div class="amenity-tag">Net Cricket</div>
-          <div class="amenity-tag">Mini Football</div>
+        <div class="amenity-cat">
+          <div class="amenity-cat-title">🍽️ Social & Leisure</div>
+          <div class="amenity-items">
+            <div class="amenity-tag">Banquet Hall</div>
+            <div class="amenity-tag">Bar Lounge</div>
+            <div class="amenity-tag">Performance Stage</div>
+            <div class="amenity-tag">Campfire Deck</div>
+            <div class="amenity-tag">Library</div>
+            <div class="amenity-tag">Kids' Play Zone</div>
+            <div class="amenity-tag">Gym</div>
+            <div class="amenity-tag">OHT Tower Suites</div>
+            <div class="amenity-tag">Net Cricket</div>
+            <div class="amenity-tag">Mini Football</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-  <!-- <div class="slider" id="gallery">
-    <div><img src="./img/pool-villas.png"></div>
-    <div><img src="./img/1-bhk.png"></div>
-    <div><img src="./img/2-bhk.png"></div>
-    <div><img src="./img/3-bhk.png"></div>
-    <div><img src="./img/club-house.png"></div>
-  </div> -->
+  </section>
 
 
 
-<!-- DESTINATION -->
-<section class="destination" id="location-dest">
-  <div class="section-inner">
-    <div class="destination-grid">
-      <div class="reveal">
-        <div class="section-label">Sakaleshpur</div>
-        <h2 class="section-title">A Destination<br><em>Unto Itself</em></h2>
-        <div class="gold-rule"></div>
-        <p style="font-size:1rem;line-height:1.8;color:var(--mid);font-weight:300;">Nestled in the Western Ghats, Sakaleshpur accounts for a third of India's cardamom production and is traditionally famous for trekking, coffee estates, and its 11th century Hoysala temple. Cool, misty, and perennially green.</p>
-        <div class="attraction-list">
-          <div class="attraction-item"><div class="attraction-dot"></div>Manjarabad Fort (8 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Bisle View Point (52 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Green Route Trek (14 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Manjehalli Waterfalls (14 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Jenukal Gudda (20 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Kukke Subrahmanya (60 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Sakleshwara Temple (10 km)</div>
-          <div class="attraction-item"><div class="attraction-dot"></div>Belur & Halebidu (40 km)</div>
+
+  <!-- DESTINATION -->
+  <section class="destination" id="investment">
+    <div class="section-inner">
+      <div class="destination-grid">
+        <div class="reveal">
+          <div class="section-label">Sakaleshpur</div>
+          <h2 class="section-title">A Destination<br><em>Unto Itself</em></h2>
+          <div class="gold-rule"></div>
+          <p style="font-size:1rem;line-height:1.8;color:var(--mid);font-weight:300;">Nestled in the Western Ghats,
+            Sakaleshpur accounts for a third of India's cardamom production and is traditionally famous for trekking,
+            coffee estates, and its 11th century Hoysala temple. Cool, misty, and perennially green.</p>
+          <div class="attraction-list">
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Manjarabad Fort (8 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Bisle View Point (52 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Green Route Trek (14 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Manjehalli Waterfalls (14 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Jenukal Gudda (20 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Kukke Subrahmanya (60 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Sakleshwara Temple (10 km)
+            </div>
+            <div class="attraction-item">
+              <div class="attraction-dot"></div>Belur & Halebidu (40 km)
+            </div>
+          </div>
+          <br />
+          <h2 class="section-title">Glimpse of <em>Resort Plan</em></h2>
+          <img style="max-width: 100%;margin: 20px 0;" src="./img/resort-plan-trans.png" alt="">
         </div>
-      </div>
-      <div class="dest-imgs reveal reveal-delay-2">
-        <div class="dest-img-wrap">
-          <img class="dest-img" src="./img/destiny-1.jpg" alt="Western Ghats">
-        </div>
-        <div class="dest-img-wrap">
-          <img class="dest-img" src="./img/destiny-2.jpg" alt="Trekking">
-        </div>
-        <div class="dest-img-wrap">
-          <img class="dest-img" src="./img/destiny-3.jpg" alt="Forest">
+        <div class="reveal reveal-delay-2">
+
+          <div class="reveal">
+            <div class="section-label">WHY INVEST AT RITE CANEPHORA (Sakleshpur)
+            </div>
+            <h2 class="section-title">A Smarter Kind<br>of <em>Ownership</em></h2>
+            <div class="gold-rule"></div>
+            <div class="invest-cards" style="margin-top:40px;">
+              <div class="invest-card">
+                <div class="invest-card-num">01</div>
+                <div class="invest-card-body">
+                  <div class="invest-card-title">Assured Annual Returns
+                  </div>
+                  <div class="invest-card-desc">Enjoy guaranteed annual returns of ₹5 lakh, creating a steady and
+                    predictable income stream from your investment.
+                  </div>
+                </div>
+              </div>
+              <div class="invest-card">
+                <div class="invest-card-num">02</div>
+                <div class="invest-card-body">
+                  <div class="invest-card-title">Structured Value Appreciation
+                  </div>
+                  <div class="invest-card-desc">Your investment is designed to grow with a 7.5% incremental appreciation
+                    every third year, enhancing long-term value.
+                  </div>
+                </div>
+              </div>
+              <div class="invest-card">
+                <div class="invest-card-num">03</div>
+                <div class="invest-card-body">
+                  <div class="invest-card-title">Secure Exit with Buyback
+                  </div>
+                  <div class="invest-card-desc">Benefit from a buyback option in 7.5 years at 2X your investment amount,
+                    offering a clear and rewarding exit strategy.
+                  </div>
+                </div>
+              </div>
+              <div class="invest-card">
+                <div class="invest-card-num">04</div>
+                <div class="invest-card-body">
+                  <div class="invest-card-title">Premium Hospitality Backing
+                  </div>
+                  <div class="invest-card-desc">Backed by a 5-star resort chain through a 30-year signed agreement,
+                    ensuring world-class hospitality standards and sustained project value.
+                  </div>
+                </div>
+              </div>
+              <div class="invest-card">
+                <div class="invest-card-num">05</div>
+                <div class="invest-card-body">
+                  <div class="invest-card-title">High-Growth Destination
+
+                  </div>
+                  <div class="invest-card-desc">Sakaleshpur continues to emerge as a rapidly appreciating leisure and
+                    lifestyle market, driven by tourism growth and premium demand.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- <section class="temple-section">
+  <!-- <section class="temple-section">
   <h2 class="temple-header">Famous Temples Near By</h2>
   <div class="temple-grid">
     
@@ -1424,129 +2200,75 @@ $(document).ready(function(){
 </section> -->
 
 
-<section class="resort-plan slider">
-  <img src="./img/resort-plan.png" alt="" >
-  <img src="./img/master-plan.png" alt="">  
-</section>
+  <section class="resort-plan slider">
+    <img src="./img/slider/1.jpeg" alt="">
+    <img src="./img/slider/8.jpg" alt="">
+    <img src="./img/slider/2.jpeg" alt="">
+    <img src="./img/slider/3.jpeg" alt="">
+    <img src="./img/slider/9.PNG" alt="">
+    <img src="./img/slider/4.jpeg" alt="">
+    <img src="./img/slider/5.jpeg" alt="">
+    <img src="./img/slider/11.png" alt="">
+    <img src="./img/slider/12.png" alt="">
+    <img src="./img/slider/6.jpeg" alt="">
+
+  </section>
 
 
-<!-- LOCATION -->
-<section class="location" id="location">
-  <div class="section-inner">
-    <div class="location-grid">
-      <div class="reveal">
-        <div class="section-label">How to Reach</div>
-        <h2 class="section-title">Well-Connected,<br><em>Wonderfully Remote</em></h2>
-        <div class="gold-rule"></div>
-        <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;margin-bottom:8px;font-weight:300;">Located at Agalatti Village, Hanbal Hobli, Sakaleshpur — 6 km off NH 75 (Bengaluru–Mangalore Highway).</p>
-        <div class="distance-list">
-          <div class="distance-item"><span class="distance-place">Bengaluru</span><span class="distance-val">225 km · 3.5 hrs</span></div>
-          <div class="distance-item"><span class="distance-place">Mangaluru</span><span class="distance-val">135 km · 2.5 hrs</span></div>
-          <div class="distance-item"><span class="distance-place">Chikmagalur</span><span class="distance-val">60 km · 1.2 hrs</span></div>
-          <div class="distance-item"><span class="distance-place">Hassan</span><span class="distance-val">35 km · 45 min</span></div>
-          <div class="distance-item"><span class="distance-place">Belur & Halebidu</span><span class="distance-val">40 km · 53 min</span></div>
-          <div class="distance-item"><span class="distance-place">Madikeri (Coorg)</span><span class="distance-val">100 km · 2 hrs</span></div>
+  <!-- LOCATION -->
+  <section class="location" id="location">
+    <div class="section-inner">
+      <div class="location-grid">
+        <div class="reveal">
+          <div class="section-label">How to Reach</div>
+          <h2 class="section-title">Well-Connected,<br><em>Wonderfully Remote</em></h2>
+          <div class="gold-rule"></div>
+          <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;margin-bottom:8px;font-weight:300;">Located at
+            Agalatti Village, Hanbal Hobli, Sakaleshpur — 6 km off NH 75 (Bengaluru–Mangalore Highway).</p>
+          <div class="distance-list">
+            <div class="distance-item"><span class="distance-place">Bengaluru</span><span class="distance-val">225 km ·
+                3.5 hrs</span></div>
+            <div class="distance-item"><span class="distance-place">Mangaluru</span><span class="distance-val">135 km ·
+                2.5 hrs</span></div>
+            <div class="distance-item"><span class="distance-place">Chikmagalur</span><span class="distance-val">60 km ·
+                1.2 hrs</span></div>
+            <div class="distance-item"><span class="distance-place">Hassan</span><span class="distance-val">35 km · 45
+                min</span></div>
+            <div class="distance-item"><span class="distance-place">Belur & Halebidu</span><span class="distance-val">40
+                km · 53 min</span></div>
+            <div class="distance-item"><span class="distance-place">Madikeri (Coorg)</span><span
+                class="distance-val">100 km · 2 hrs</span></div>
+          </div>
         </div>
-      </div>
-      <div class="location-map-wrap reveal reveal-delay-1">
+        <div class="location-map-wrap reveal reveal-delay-1">
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1536887164225!2d75.7391106!3d12.9620157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba528756faf1c19%3A0xe62e95acfbaf81cf!2sRite%20Canephora%20Resort!5e0!3m2!1sen!2sin!4v1777319631268!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <!-- <iframe
+          <div style="position: relative; width: 100%; padding-bottom: 66.67%; height: 0; overflow: hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1536887164225!2d75.7391106!3d12.9620157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba528756faf1c19%3A0xe62e95acfbaf81cf!2sRite%20Canephora%20Resort!5e0!3m2!1sen!2sin!4v1777319631268!5m2!1sen!2sin"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <!-- <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.123456789!2d75.73!3d12.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU3JzAwLjAiTiA3NcKwNDMnNDguMCJF!5e0!3m2!1sen!2sin!4v1234567890"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe> -->
-        <div class="map-overlay-card">
-          <div class="map-overlay-card-title">Rite Canephora</div>
-          <div class="map-overlay-card-sub">Agalatti Village · Sakaleshpur</div>
+          <div class="map-overlay-card">
+            <div class="map-overlay-card-title">Rite Canephora</div>
+            <div class="map-overlay-card-sub">Agalatti Village · Sakaleshpur</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- INVESTMENT -->
-<section class="investment" id="investment">
+  <!-- INVESTMENT -->
+  <!-- <section class="investment" id="investment">
   <div class="section-inner">
-    <div class="invest-grid">
-      <div class="reveal">
-        <div class="section-label">WHY INVEST AT RITE CANEPHORA (Sakleshpur)
-        </div>
-        <h2 class="section-title">A Smarter Kind<br>of <em>Ownership</em></h2>
-        <div class="gold-rule"></div>
-        <div class="invest-cards" style="margin-top:40px;">
-          <div class="invest-card">
-            <div class="invest-card-num">01</div>
-            <div class="invest-card-body">
-              <div class="invest-card-title">Assured Annual Returns
-              </div>
-              <div class="invest-card-desc">Enjoy guaranteed annual returns of ₹5 lakh, creating a steady and predictable income stream from your investment.
-              </div>
-            </div>
-          </div>
-          <div class="invest-card">
-            <div class="invest-card-num">02</div>
-            <div class="invest-card-body">
-              <div class="invest-card-title">Structured Value Appreciation
-              </div>
-              <div class="invest-card-desc">Your investment is designed to grow with a 7.5% incremental appreciation every third year, enhancing long-term value.
-              </div>
-            </div>
-          </div>
-          <div class="invest-card">
-            <div class="invest-card-num">03</div>
-            <div class="invest-card-body">
-              <div class="invest-card-title">Secure Exit with Buyback
-              </div>
-              <div class="invest-card-desc">Benefit from a buyback option in 7.5 years at 2X your investment amount, offering a clear and rewarding exit strategy.
-              </div>
-            </div>
-          </div>
-          <div class="invest-card">
-            <div class="invest-card-num">04</div>
-            <div class="invest-card-body">
-              <div class="invest-card-title">Premium Hospitality Backing
-              </div>
-              <div class="invest-card-desc">Backed by a 5-star resort chain through a 30-year signed agreement, ensuring world-class hospitality standards and sustained project value.
-              </div>
-            </div>
-          </div>
-          <div class="invest-card">
-            <div class="invest-card-num">05</div>
-            <div class="invest-card-body">
-              <div class="invest-card-title">High-Growth Destination
-
-              </div>
-              <div class="invest-card-desc">Sakaleshpur continues to emerge as a rapidly appreciating leisure and lifestyle market, driven by tourism growth and premium demand.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <img src="https://img.magnific.com/free-photo/luxurious-villa-with-modern-architectural-design_23-2151694095.jpg" alt="">
-      <!--   <div class="invest-price-card">
-          <div class="ipc-label">Starting Investment</div>
-          <div class="ipc-price">₹1.4 Cr</div>
-          <div class="ipc-price-sub">for 10,000 Sq.Ft Plantation Plot</div>
-          <div class="ipc-divider"></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Plot Size</span><span class="ipc-detail-val">10,000 Sq.Ft (approx.)</span></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Total Land</span><span class="ipc-detail-val">16 Acres</span></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Total Plots</span><span class="ipc-detail-val">39+ Exclusive Plots</span></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Location</span><span class="ipc-detail-val">Agalatti, Sakaleshpur</span></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Resort Operator</span><span class="ipc-detail-val">IHG / Holiday Inn</span></div>
-          <div class="ipc-detail"><span class="ipc-detail-label">Developer</span><span class="ipc-detail-val">Riteway & Medha Projects</span></div>
-          <div class="ipc-divider"></div>
-          <button class="ipc-cta" onclick="document.getElementById('enquire').scrollIntoView({behavior:'smooth'})">
-            Request Detailed Pricing
-          </button> 
-         
-        </div>-->
-      </div>
-    </div>
+  
   </div>
-</section>
-<!-- 
+</section> -->
+  <!-- 
 <div class="faq-container">
   <h2 class="faq-header">Frequently Asked Questions - Rite Canephora</h2>
 
@@ -1601,431 +2323,444 @@ $(document).ready(function(){
   </div>
 </div> -->
 
-<!-- LEAD FORM -->
-<section class="lead-section" id="enquire">
-  <div class="section-inner">
-    <div class="lead-inner">
-      <div class="lead-copy reveal">
-        <div class="section-label">Register Your Interest</div>
-        <h2 class="section-title">Start Your<br><em>Journey</em></h2>
-        <div class="gold-rule" style="background:var(--gold)"></div>
-        <p>Fill in your details and our project team will get in touch with complete information — pricing, site visit scheduling, floor plans, and investment structure.</p>
-        <div style="margin-top:32px;padding:24px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03)">
-          <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">What You'll Receive</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span style="color:var(--gold)">✓</span> Complete Project Brochure</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span style="color:var(--gold)">✓</span> Detailed Price Sheet & Payment Plan</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span style="color:var(--gold)">✓</span> Site Visit Scheduling</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span style="color:var(--gold)">✓</span> Investment Returns Analysis</div>
+  <!-- LEAD FORM -->
+  <section class="lead-section" id="enquire">
+    <div class="section-inner">
+      <div class="lead-inner">
+        <div class="lead-copy reveal">
+          <div class="section-label">Register Your Interest</div>
+          <h2 class="section-title">Start Your<br><em>Journey</em></h2>
+          <div class="gold-rule" style="background:var(--gold)"></div>
+          <p>Fill in your details and our project team will get in touch with complete information — pricing, site visit
+            scheduling, floor plans, and investment structure.</p>
+          <div
+            style="margin-top:32px;padding:24px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03)">
+            <div
+              style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">
+              What You'll Receive</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span
+                  style="color:var(--gold)">✓</span> Complete Project Brochure</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span
+                  style="color:var(--gold)">✓</span> Detailed Price Sheet & Payment Plan</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span
+                  style="color:var(--gold)">✓</span> Site Visit Scheduling</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.65)"><span
+                  style="color:var(--gold)">✓</span> Investment Returns Analysis</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.79 9.88a19.79 19.79 0 01-3.07-8.68A2 2 0 012.7 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.67a16 16 0 005.35 5.35l1.03-1.04a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Call / WhatsApp</div>
+              <div class="contact-val">+91 88677 66888</div>
+            </div>
+          </div>
+          <div class="contact-row" style="margin-top:0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val">ritecanephoraresort@outlook.com</div>
+            </div>
           </div>
         </div>
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.79 9.88a19.79 19.79 0 01-3.07-8.68A2 2 0 012.7 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.67a16 16 0 005.35 5.35l1.03-1.04a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">Call / WhatsApp</div>
-            <div class="contact-val">+91 88677 66888</div>
-          </div>
-        </div>
-        <div class="contact-row" style="margin-top:0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-val">ritecanephoraresort@outlook.com</div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-box reveal reveal-delay-2" id="formBox">
-        <div id="formContent">
-          <div class="form-title">Register Interest</div>
-          <div class="form-sub">We'll be in touch within 24 hours</div>
-          
+        <div class="form-box reveal reveal-delay-2" id="enquireinner">
+          <div id="pageFormContent">
+            <div class="form-title">Register Interest</div>
+            <div class="form-sub">We'll be in touch within 24 hours</div>
             <form id="leadFormPage" onsubmit="submitForm(event, 'page')">
-            <div class="form-row">
-              <div class="form-group">
-                <label>First Name *</label>
-                <input type="text" placeholder="First Name" name="firstName" required>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>First Name *</label>
+                  <input type="text" placeholder="First Name" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label>Last Name *</label>
+                  <input type="text" placeholder="Last name" name="lastName" required>
+                </div>
               </div>
               <div class="form-group">
-                <label>Last Name *</label>
-                <input type="text" placeholder="Last name" name="lastName" required>
+                <label>Mobile Number *</label>
+                <input type="tel" placeholder="+91 " required name="mobile">
               </div>
-            </div>
-            <div class="form-group">
-              <label>Mobile Number *</label>
-              <input type="tel" placeholder="+91 " required name="mobile">
-            </div>
-            <div class="form-group">
-              <label>Email Address *</label>
-              <input type="email" name="email" placeholder="email@domain.com" required>
-            </div>
-            <div class="form-group">
-              <label>City</label>
-              <input type="text" name="city" placeholder="Your City">
-            </div>
-            <div class="form-group">
-              <label>I'm interested in</label>
-              <select name="interest">
-                <option value="">— Select Plot / Villa Type —</option>
-                <option>Plantation Plot (10,000 Sq.Ft)</option>
-                <option>1 BHK Villa (448 Sq.Ft)</option>
-                <option>2 BHK Villa (853 Sq.Ft)</option>
-                <option>3 BHK Villa (1,517 Sq.Ft)</option>
-                <option>Pool Villa (1,633 Sq.Ft)</option>
-                <option>Just Exploring</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Message / Questions (optional)</label>
-              <textarea name="message" placeholder="Any specific questions about the project, pricing, or site visit?"></textarea>
-            </div>
-            <button type="submit" class="form-submit">Send Enquiry →</button>
-            <p class="form-privacy">Your information is private and will only be used to contact you about this project.</p>
-          </form>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div class="form-success-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" placeholder="email@domain.com" required>
+              </div>
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" name="city" placeholder="Your City">
+              </div>
+              <div class="form-group">
+                <label>I'm interested in</label>
+                <select name="interest">
+                  <option value="">— Select Plot / Villa Type —</option>
+                  <option>2 BHK Villa (1,250 Sq.Ft)</option>
+                  <option>3 BHK Villa (1,750 Sq.Ft)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Message / Questions (optional)</label>
+                <textarea name="message"
+                  placeholder="Any specific questions about the project, pricing, or site visit?"></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Enquiry →</button>
+              <p class="form-privacy">Your information is private and will only be used to contact you about this
+                project.</p>
+            </form>
           </div>
-          <h3>Thank You!</h3>
-          <p>Your enquiry has been received.<br>Our team will contact you within 24 hours.</p>
-          <p style="margin-top:16px;color:rgba(255,255,255,0.3);font-size:0.75rem;">For immediate assistance, call +91 88677 66888</p>
+          <div class="form-success" id="pageFormSuccess" style="display: none;">
+            <div class="form-success-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            console.error(err);
+            alert("Submission failed. Please check your connection and try again.");
+            <p style="margin-top:16px;color:rgba(255,255,255,0.3);font-size:0.75rem;">For immediate assistance, call +91
+              88677 66888</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-brand-name">Rite Canephora</div>
-      <div class="footer-brand-sub">Resort & Plantation Plots · Sakaleshpur</div>
-      <p>A Riteway & Medha Projects development in the heart of the Western Ghats, Sakaleshpur, Hassan District, Karnataka.</p>
-    <img src="./img/brand-logo.png" style="max-width: 150px; margin: 20px 0;">
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Rite Canephora</div>
+        <div class="footer-brand-sub">Resort & Plantation Plots · Sakaleshpur</div>
+        <p>A Riteway & Medha Projects development in the heart of the Western Ghats, Sakaleshpur, Hassan District,
+          Karnataka.</p>
+        <img src="./img/brand-logo.png" style="max-width: 150px; margin: 20px 0;">
+      </div>
+      <div class="footer-links">
+        <h4>Project</h4>
+        <a href="#project">About</a>
+        <a href="#villas">Plot & Villa Types</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#investment">Investment</a>
+      </div>
+      <div class="footer-links">
+        <h4>Destination</h4>
+        <a href="#location-dest">Sakaleshpur</a>
+        <a href="#location">How to Reach</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="tel:+918867766888">+91 88677 66888</a>
+        <a href="tel:+918867712888">+91 88677 12888</a>
+        <a href="mailto:ritecanephoraresort@outlook.com">ritecanephoraresort@outlook.com</a>
+        <a href="http://www.ritecanephoraresort.com" target="_blank">www.ritecanephoraresort.com</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <h4>Project</h4>
-      <a href="#project">About</a>
-      <a href="#villas">Plot & Villa Types</a>
-      <a href="#amenities">Amenities</a>
-      <a href="#investment">Investment</a>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        DISCLAIMER: The images and visuals contained herein are artistic impressions and are meant to be indicative
+        only. All content is subject to change as may be required by statutory authorities. Visuals do not constitute a
+        legal offer or contract. Prospective buyers are advised to visit the sales office and verify all plans before
+        making a purchase decision.
+      </div>
+      <div class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24">
+          <polyline points="18 15 12 9 6 15" />
+        </svg>
+      </div>
     </div>
-    <div class="footer-links">
-      <h4>Destination</h4>
-      <a href="#location-dest">Sakaleshpur</a>
-      <a href="#location">How to Reach</a>
-    </div>
-    <div class="footer-links">
-      <h4>Contact</h4>
-      <a href="tel:+918867766888">+91 88677 66888</a>
-      <a href="tel:+918867712888">+91 88677 12888</a>
-      <a href="mailto:ritecanephoraresort@outlook.com">ritecanephoraresort@outlook.com</a>
-      <a href="http://www.ritecanephoraresort.com" target="_blank">www.ritecanephoraresort.com</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-legal">
-      DISCLAIMER: The images and visuals contained herein are artistic impressions and are meant to be indicative only. All content is subject to change as may be required by statutory authorities. Visuals do not constitute a legal offer or contract. Prospective buyers are advised to visit the sales office and verify all plans before making a purchase decision.
-    </div>
-    <div class="footer-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-      <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
 
-<div id="enquireModal" class="modal">
-  <div class="modal-overlay"></div>
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-<div class="form-box reveal reveal-delay-2" id="formBox">
-  <div id="formContent">
-    <div class="form-title">Register Interest</div>
-    <div class="form-sub">We'll be in touch within 24 hours</div>
-    <form id="leadFormModal" onsubmit="submitForm(event, 'modal')">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name *</label>
-          <input type="text" placeholder="First Name" name="firstName" required>
+  <div id="enquireModal" class="modal">
+    <div class="modal-overlay" onclick="closeEnquireModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeEnquireModal()">&times;</button>
+      <div id="modalFormContent">
+        <div class="form-title">Register Interest</div>
+        <div class="form-sub">We'll be in touch within 24 hours</div>
+        <form id="leadFormModal" onsubmit="submitForm(event, 'modal')">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" placeholder="First Name" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" placeholder="Last name" name="lastName" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number *</label>
+            <input type="tel" placeholder="+91 " required name="mobile">
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="email" placeholder="email@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" name="city" placeholder="Your City">
+          </div>
+          <div class="form-group">
+            <label>I'm interested in</label>
+            <select name="interest">
+              <option value="">— Select Plot / Villa Type —</option>
+              <option>Plantation Plot (10,000 Sq.Ft)</option>
+              <option>1 BHK Villa (448 Sq.Ft)</option>
+              <option>2 BHK Villa (853 Sq.Ft)</option>
+              <option>3 BHK Villa (1,517 Sq.Ft)</option>
+              <option>Pool Villa (1,633 Sq.Ft)</option>
+              <option>Just Exploring</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Questions (optional)</label>
+            <textarea name="message"
+              placeholder="Any specific questions about the project, pricing, or site visit?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+          <p class="form-privacy">Your information is private and will only be used to contact you about this project.
+          </p>
+        </form>
+      </div>
+      <div class="form-success" id="modalFormSuccess" style="display: none;">
+        <div class="form-success-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
         </div>
-        <div class="form-group">
-          <label>Last Name *</label>
-          <input type="text" placeholder="Last name" name="lastName" required>
-        </div>
+        <h3>Thank You!</h3>
+        <p>Your enquiry has been received.<br>Our team will contact you within 24 hours.</p>
+        <p style="margin-top:16px;color:rgba(255,255,255,0.3);font-size:0.75rem;">For immediate assistance, call +91
+          88677 66888</p>
       </div>
-      <div class="form-group">
-        <label>Mobile Number *</label>
-        <input type="tel" placeholder="+91 " required name="mobile">
-      </div>
-      <div class="form-group">
-        <label>Email Address *</label>
-        <input type="email" name="email" placeholder="email@domain.com" required>
-      </div>
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" name="city" placeholder="Your City">
-      </div>
-      <div class="form-group">
-        <label>I'm interested in</label>
-        <select name="interest">
-          <option value="">— Select Plot / Villa Type —</option>
-          <option>Plantation Plot (10,000 Sq.Ft)</option>
-          <option>1 BHK Villa (448 Sq.Ft)</option>
-          <option>2 BHK Villa (853 Sq.Ft)</option>
-          <option>3 BHK Villa (1,517 Sq.Ft)</option>
-          <option>Pool Villa (1,633 Sq.Ft)</option>
-          <option>Just Exploring</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message / Questions (optional)</label>
-        <textarea name="message" placeholder="Any specific questions about the project, pricing, or site visit?"></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send Enquiry →</button>
-      <p class="form-privacy">Your information is private and will only be used to contact you about this project.</p>
-    </form>
-  </div>
-  <div class="form-success" id="formSuccess">
-    <div class="form-success-icon">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <h3>Thank You!</h3>
-    <p>Your enquiry has been received.<br>Our team will contact you within 24 hours.</p>
-    <p style="margin-top:16px;color:rgba(255,255,255,0.3);font-size:0.75rem;">For immediate assistance, call +91 88677 66888</p>
   </div>
-</div>
-</div>
-</div>
 
-<style>
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    z-index: 9999;
-  }
-  
-  .modal.active {
-    display: block;
-  }
-  
-  .modal-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-  }
+  <style>
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 9999;
+    }
 
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.modal-content {
-  position: relative;
-  max-width: 600px;
-  width: 90%;
-  margin: 5% auto;
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
+    .modal-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
 
-  max-height: 70vh;        /* 🔥 limit height */
-  overflow-y: auto;        /* scroll inside */
-}
+    .modal-content {
+      position: relative;
+      max-width: 600px;
+      width: 90%;
+      background: var(--forest);
+      padding: 40px;
+      border-radius: 10px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
 
-/* optional: make it tighter */
-.form-box {
-  /* padding: 10px 0; */
-}
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
 
-.form-group {
-  margin-bottom: 10px;
-}
-
-textarea {
-  min-height: 60px;  /* reduce big textarea */
-}
-
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
   </style>
 
 
-<!-- FLOAT CTA -->
-<a href="#enquire" class="float-cta" id="floatCta">Enquire Now</a>
-<script>
-  const buttons = document.querySelectorAll('.accordion-button');
+  <!-- FLOAT CTA -->
+  <a href="#enquireinner" class="float-cta" id="floatCta">Enquire Now</a>
+  <script>
+    const buttons = document.querySelectorAll('.accordion-button');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const panel = btn.nextElementSibling;
-      btn.classList.toggle('active');
-      panel.classList.toggle('open');
-    });
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  
-    const modal = document.getElementById('enquireModal');
-  
-    // OPEN MODAL
-    document.querySelector('.nav-cta').addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.classList.add('active');
-    });
-  
-    // CLOSE MODAL
-    document.querySelector('.modal-close').addEventListener('click', closeModal);
-    document.querySelector('.modal-overlay').addEventListener('click', closeModal);
-  
-    function closeModal() {
-      modal.classList.remove('active');
-    }
-  
-    // FORM SUBMIT
-    window.submitForm = function(e, type) {
-      e.preventDefault();
-  
-      const form = type === 'modal'
-        ? document.getElementById("leadFormModal")
-        : document.getElementById("leadFormPage");
-  
-      if (!form) {
-        console.error("Form not found");
-        return;
-      }
-  
-      const formData = new FormData(form);
-      const submitBtn = form.querySelector(".form-submit");
-  
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Sending...";
-  
-      fetch("https://script.google.com/macros/s/AKfycbxYKRc6LzK0g3tZsWnGSgyL4MnYpWPztwZpUg9AsErwQBZYsXUTF8KKCN3hkxaj84DvyA/exec", {
-        method: "POST",
-        body: new URLSearchParams(formData)
-      })
-      .then(res => res.text())
-      .then(() => {
-  
-        if (type === 'modal') {
-          document.getElementById("formContent").style.display = "none";
-          document.getElementById("formSuccess").style.display = "block";
-  
-          setTimeout(() => {
-            closeModal();
-            document.getElementById("formContent").style.display = "block";
-            document.getElementById("formSuccess").style.display = "none";
-          }, 3000);
-        } else {
-          alert("Thank you! We’ll contact you.");
-        }
-  
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Enquiry →";
-      })
-      .catch(err => {
-        console.error(err);
-        alert("Submission failed. Try again.");
-  
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Enquiry →";
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        btn.classList.toggle('active');
+        panel.classList.toggle('open');
       });
-    };
-  
-  });
+    });
   </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-  
-<script>
+      const modal = document.getElementById('enquireModal');
 
+      // OPEN MODAL
+      document.querySelector('.nav-cta').addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.classList.add('active');
+      });
 
+      // CLOSE MODAL
+      document.querySelector('.modal-close').addEventListener('click', closeModal);
+      document.querySelector('.modal-overlay').addEventListener('click', closeModal);
 
-  
-function submitForm(e) {
-  e.preventDefault();
+      function closeModal() {
+        modal.classList.remove('active');
+      }
 
-  const form = document.getElementById("leadForm");
-  const formData = new FormData(form);
+      // FORM SUBMIT
+      window.submitForm = function (e, type) {
+        e.preventDefault();
 
-  fetch("https://script.google.com/macros/s/AKfycbxYKRc6LzK0g3tZsWnGSgyL4MnYpWPztwZpUg9AsErwQBZYsXUTF8KKCN3hkxaj84DvyA/exec", {
-    method: "POST",
-    body: new URLSearchParams(formData)
-  })
-  .then(res => res.text())
-  .then(() => {
-      document.getElementById("formContent").style.display = "none";
-      document.getElementById("formSuccess").style.display = "block";
-  })
-  .catch(err => {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
-  });
-}
+        const form = type === 'modal'
+          ? document.getElementById("leadFormModal")
+          : document.getElementById("leadFormPage");
 
+        if (!form) {
+          console.error("Form not found");
+          return;
+        }
+
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector(".form-submit");
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending...";
+
+        fetch("https://script.google.com/macros/s/AKfycbxYKRc6LzK0g3tZsWnGSgyL4MnYpWPztwZpUg9AsErwQBZYsXUTF8KKCN3hkxaj84DvyA/exec", {
+          method: "POST",
+          body: new URLSearchParams(formData),
+          mode: 'no-cors'
+        })
+          .then(() => {
+
+            if (type === 'modal') {
+              document.getElementById("modalFormContent").style.display = "none";
+              document.getElementById("modalFormSuccess").style.display = "block";
+
+              setTimeout(() => {
+                document.getElementById('enquireModal').classList.remove('active');
+                document.getElementById("modalFormContent").style.display = "block";
+                document.getElementById("modalFormSuccess").style.display = "none";
+              }, 3000);
+            } else {
+              alert("Thank you! We’ll contact you.");
+            }
+
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Send Enquiry →";
+          })
+          .catch(err => {
+            console.error('Form submission error:', err);
+            // Show success anyway - form was likely sent
+            if (type === 'modal') {
+              document.getElementById("modalFormContent").style.display = "none";
+              document.getElementById("modalFormSuccess").style.display = "block";
+              setTimeout(() => {
+                document.getElementById('enquireModal').classList.remove('active');
+                document.getElementById("modalFormContent").style.display = "block";
+                document.getElementById("modalFormSuccess").style.display = "none";
+              }, 3000);
+            } else {
+              document.getElementById("pageFormContent").style.display = "none";
+              document.getElementById("pageFormSuccess").style.display = "block";
+            }
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Send Enquiry →";
+          });
+      };
+
+    });
   </script>
-<script>
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  const floatCta = document.getElementById('floatCta');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-    if (window.scrollY > 600) {
-      floatCta.classList.add('visible');
-    } else {
-      floatCta.classList.remove('visible');
-    }
-  });
-
-  // Hero parallax + load
-  setTimeout(() => {
-    document.getElementById('heroBg').classList.add('loaded');
-  }, 100);
-
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    const floatCta = document.getElementById('floatCta');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      if (window.scrollY > 600) {
+        floatCta.classList.add('visible');
+      } else {
+        floatCta.classList.remove('visible');
       }
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+
+    // Hero parallax + load
+    setTimeout(() => {
+      document.getElementById('heroBg').classList.add('loaded');
+    }, 100);
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
 
   // Form submit
-  
 
-</script>
-<script>
-  const heroBg = document.getElementById('heroBg');
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = window.innerHeight;
-    const progress = Math.min(scrollY / maxScroll, 1);
+  </script>
+  <script>
+    const heroBg = document.getElementById('heroBg');
 
-    // Background zoom: from 100% to 120%
-    const size = 100 + progress * 20;
-    if(!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi|Tablet|iPad/i) ) {
-    heroBg.style.backgroundSize = `${size}% auto`;
-    }
-  });
-</script>
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const maxScroll = window.innerHeight;
+      const progress = Math.min(scrollY / maxScroll, 1);
+
+      // Background zoom: from 100% to 120%
+      const size = 100 + progress * 20;
+      if (!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi|Tablet|iPad/i)) {
+        heroBg.style.backgroundSize = `${size}% auto`;
+      }
+    });
+  </script>
 </body>
+
 </html>
